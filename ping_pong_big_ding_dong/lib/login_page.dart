@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
+import 'package:get/get.dart';
+import 'package:ping_pong_big_ding_dong/game_main/homepage.dart';
 
 class LoginPage extends StatelessWidget {
   const LoginPage({super.key});
@@ -28,7 +30,11 @@ class LoginPage extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
                   //google login
-                  ElevatedButton(onPressed: () {}, child: Icon(Icons.login)),
+                  ElevatedButton(
+                      onPressed: () {
+                        Get.to(HomePage());
+                      },
+                      child: Icon(Icons.login)),
                 ],
               )
             ],
