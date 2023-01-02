@@ -6,8 +6,9 @@ class BrickPong extends StatelessWidget {
   final double? x;
   final double? y;
   final brickWidth;
+  final thisIsEnemy;
 
-  BrickPong({this.x, this.y, this.brickWidth});
+  BrickPong({this.x, this.y, this.brickWidth, this.thisIsEnemy});
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -15,9 +16,9 @@ class BrickPong extends StatelessWidget {
       child: ClipRRect(
         borderRadius: BorderRadius.circular(10),
         child: Container(
-          color: Colors.white,
+          color: (thisIsEnemy) ? Colors.red : Colors.blue,
           height: 20,
-          width: MediaQuery.of(context).size.width / 5,
+          width: MediaQuery.of(context).size.width * brickWidth / 2,
         ),
       ),
     );
