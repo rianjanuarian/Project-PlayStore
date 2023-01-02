@@ -164,7 +164,7 @@ class _HomePageState extends State<HomePage> {
                         },
                         child: Text(
                           ">",
-                          style: TextStyle(fontSize: 30),
+                          style: TextStyle(fontFamily: 'Poppins', fontSize: 30),
                         )),
                   ),
                 ),
@@ -183,7 +183,7 @@ class _HomePageState extends State<HomePage> {
                         },
                         child: Text(
                           "<",
-                          style: TextStyle(fontSize: 30),
+                          style: TextStyle(fontFamily: 'Poppins', fontSize: 30),
                         )),
                   ),
                 ),
