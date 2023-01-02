@@ -156,8 +156,8 @@ class _HomePageState extends State<HomePage> {
                 child: ClipRRect(
                   borderRadius: BorderRadius.circular(10),
                   child: SizedBox(
-                    height: 70,
-                    width: 70,
+                    height: 90,
+                    width: 90,
                     child: ElevatedButton(
                         onPressed: () {
                           moveRight();
@@ -175,8 +175,8 @@ class _HomePageState extends State<HomePage> {
                 child: ClipRRect(
                   borderRadius: BorderRadius.circular(10),
                   child: SizedBox(
-                    height: 70,
-                    width: 70,
+                    height: 90,
+                    width: 90,
                     child: ElevatedButton(
                         onPressed: () {
                           moveLeft();
