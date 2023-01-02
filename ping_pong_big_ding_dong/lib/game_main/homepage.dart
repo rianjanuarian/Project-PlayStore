@@ -100,100 +100,95 @@ class _HomePageState extends State<HomePage> {
 
   void moveLeft() {
     setState(() {
-      playerX -= 0.1;
+      playerX -= 0.15;
     });
   }
 
   void moveRight() {
     setState(() {
-      playerX += 0.1;
+      playerX += 0.15;
     });
   }
 
   @override
   Widget build(BuildContext context) {
-    return RawKeyboardListener(
-      focusNode: FocusNode(),
-      autofocus: true,
-      onKey: (event) {
-        if (event.isKeyPressed(LogicalKeyboardKey.arrowLeft)) {
-          moveLeft();
-        } else if (event.isKeyPressed(LogicalKeyboardKey.arrowRight)) {
-          moveRight();
-        }
-      },
-      child: GestureDetector(
-        onTap: startGame,
-        child: Scaffold(
-          backgroundColor: Colors.grey[900],
-          body: Center(
-            child: Stack(
-              children: [
-                //tap everything
-                CoverScreen(
-                  gameHasStarted: gameHasStarted,
-                ),
-                //top brick
-                BrickPong(
-                  x: 0,
-                  y: -0.9,
-                  brickWidth: playerWidth,
-                ),
+    return GestureDetector(
+      onTap: startGame,
+      child: Scaffold(
+        backgroundColor: Colors.grey[900],
+        body: Center(
+          child: Stack(
+            children: [
+              //tap everything
+              CoverScreen(
+                gameHasStarted: gameHasStarted,
+              ),
+              //top brick
+              BrickPong(
+                x: 0,
+                y: -0.9,
+                brickWidth: playerWidth,
+              ),
 
-                //bottom brick
-                BrickPong(
-                  x: playerX,
-                  y: 0.7,
-                  brickWidth: playerWidth,
+              //bottom brick
+              BrickPong(
+                x: playerX,
+                y: 0.7,
+                brickWidth: playerWidth,
+              ),
+              //ball
+              BallPong(
+                x: ballX,
+                y: ballY,
+              ),
+              Container(
+                alignment: Alignment(playerX, 0.7),
+                child: Container(
+                  width: 2,
+                  height: 20,
+                  color: Colors.red,
                 ),
-                //ball
-                BallPong(
-                  x: ballX,
-                  y: ballY,
-                ),
-                Container(
-                  alignment: Alignment(playerX, 0.7),
-                  child: Container(
-                    width: 2,
-                    height: 20,
-                    color: Colors.red,
-                  ),
-                ),
+              ),
 
-                //right direction arrow key
-                Container(
-                  alignment: Alignment(buttonDirectionRight, buttonDirectionY),
-                  child: ClipRRect(
-                    borderRadius: BorderRadius.circular(10),
-                    child: SizedBox(
-                      height: 70,
-                      width: 70,
-                      child: ElevatedButton(
-                          onPressed: () {
-                            moveRight();
-                          },
-                          child: Text(">")),
-                    ),
+              //right direction arrow key
+              Container(
+                alignment: Alignment(buttonDirectionRight, buttonDirectionY),
+                child: ClipRRect(
+                  borderRadius: BorderRadius.circular(10),
+                  child: SizedBox(
+                    height: 70,
+                    width: 70,
+                    child: ElevatedButton(
+                        onPressed: () {
+                          moveRight();
+                        },
+                        child: Text(
+                          ">",
+                          style: TextStyle(fontSize: 30),
+                        )),
                   ),
                 ),
-                //left direction arrow key
-                Container(
-                  alignment: Alignment(buttonDirectionLeft, buttonDirectionY),
-                  child: ClipRRect(
-                    borderRadius: BorderRadius.circular(10),
-                    child: SizedBox(
-                      height: 70,
-                      width: 70,
-                      child: ElevatedButton(
-                          onPressed: () {
-                            moveLeft();
-                          },
-                          child: Text("<")),
-                    ),
+              ),
+              //left direction arrow key
+              Container(
+                alignment: Alignment(buttonDirectionLeft, buttonDirectionY),
+                child: ClipRRect(
+                  borderRadius: BorderRadius.circular(10),
+                  child: SizedBox(
+                    height: 70,
+                    width: 70,
+                    child: ElevatedButton(
+                        onPressed: () {
+                          moveLeft();
+                        },
+                        child: Text(
+                          "<",
+                          style: TextStyle(fontSize: 30),
+                        )),
                   ),
                 ),
-              ],
-            ),
+              ),
+            ],
           ),
         ),
       ),
