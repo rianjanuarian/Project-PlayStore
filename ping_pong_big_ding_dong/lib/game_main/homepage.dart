@@ -6,6 +6,7 @@ import 'package:flutter/services.dart';
 import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:get/get_core/get_core.dart';
+import 'package:lottie/lottie.dart';
 import 'package:ping_pong_big_ding_dong/game_main/ball.dart';
 import 'package:ping_pong_big_ding_dong/game_main/brick.dart';
 import 'package:ping_pong_big_ding_dong/game_main/button_direction.dart';
@@ -88,11 +89,21 @@ class _HomePageState extends State<HomePage> {
         barrierDismissible: false,
         builder: (BuildContext context) {
           return AlertDialog(
-            backgroundColor: Color.fromARGB(255, 58, 183, 162),
+            shape:
+                RoundedRectangleBorder(borderRadius: BorderRadius.circular(15)),
+            backgroundColor: Color.fromARGB(255, 58, 3, 63),
             title: Center(
-              child: Text(
-                'Score : $scoreTime',
-                style: TextStyle(fontFamily: 'Poppins', color: Colors.white),
+              child: Column(
+                children: [
+                  Container(
+                    child: Lottie.asset('assets/pingpong.json'),
+                  ),
+                  Text(
+                    'Score : $scoreTime',
+                    style:
+                        TextStyle(fontFamily: 'Poppins', color: Colors.white),
+                  ),
+                ],
               ),
             ),
             actions: [
@@ -187,7 +198,7 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.grey[900],
+      backgroundColor: Color.fromARGB(255, 3, 12, 92),
       body: Center(
         child: Stack(
           children: [

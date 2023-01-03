@@ -12,25 +12,25 @@ class LoginPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text(
-          "Ping Pong Game",
-          textAlign: TextAlign.center,
-        ),
-      ),
       body: Center(
         child: Stack(children: [
           RiveAnimation.asset(
             'assets/space.riv',
-            fit: BoxFit.fitHeight,
+            fit: BoxFit.cover,
+          ),
+          SizedBox(
+            height: MediaQuery.of(context).size.height * 0.2,
+            child: Container(
+              alignment: Alignment.center,
+              child: Text(
+                "ENDLESS PING PONG",
+                style: TextStyle(fontFamily: 'Poppins', fontSize: 30),
+              ),
+            ),
           ),
           Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Text(
-                "Ping Pong",
-                style: TextStyle(fontFamily: 'Poppins'),
-              ),
               Container(
                 child: Lottie.asset('assets/pingpong.json'),
               ),
