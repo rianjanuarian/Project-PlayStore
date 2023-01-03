@@ -3,6 +3,8 @@ import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:get/get.dart';
 import 'package:ping_pong_big_ding_dong/game_main/homepage.dart';
+import 'package:lottie/lottie.dart';
+import 'package:rive/rive.dart';
 
 class LoginPage extends StatelessWidget {
   const LoginPage({super.key});
@@ -17,12 +19,21 @@ class LoginPage extends StatelessWidget {
         ),
       ),
       body: Center(
-        child: SizedBox(
-          width: 300,
-          height: 300,
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.end,
+        child: Stack(children: [
+          RiveAnimation.asset(
+            'assets/space.riv',
+            fit: BoxFit.fitHeight,
+          ),
+          Column(
+            mainAxisAlignment: MainAxisAlignment.center,
             children: [
+              Text(
+                "Ping Pong",
+                style: TextStyle(fontFamily: 'Poppins'),
+              ),
+              Container(
+                child: Lottie.asset('assets/pingpong.json'),
+              ),
               SizedBox(
                 height: 10,
               ),
@@ -39,7 +50,7 @@ class LoginPage extends StatelessWidget {
               )
             ],
           ),
-        ),
+        ]),
       ),
     );
   }
