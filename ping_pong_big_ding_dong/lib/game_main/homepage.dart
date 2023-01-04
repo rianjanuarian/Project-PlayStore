@@ -40,9 +40,9 @@ class _HomePageState extends State<HomePage> {
   bool gameHasStarted = false;
 
   void startGame() {
+    highScore();
     gameHasStarted = true;
     Timer.periodic(const Duration(milliseconds: 1), (timer) {
-      highScore();
       // update direction
       updateDirection();
 
