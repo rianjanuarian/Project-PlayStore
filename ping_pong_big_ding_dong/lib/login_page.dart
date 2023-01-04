@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
@@ -42,10 +43,27 @@ class LoginPage extends StatelessWidget {
                 children: [
                   //google login
                   ElevatedButton(
-                      onPressed: () {
-                        Get.to(HomePage());
-                      },
-                      child: Icon(Icons.login)),
+                    onPressed: () {
+                      if (FirebaseAuth.instance.currentUser != null) {
+                        FirebaseAuth.instance.signOut();
+                      } else {
+                        FirebaseAuth.instance.signInAnonymously();
+                      }
+                      Get.to(HomePage());
+                    },
+                    child: SizedBox(
+                      width: 90,
+                      height: 90,
+                      child: Container(
+                        alignment: Alignment.center,
+                        child: Text(
+                          "Enter Game",
+                          style: TextStyle(fontFamily: 'Poppins'),
+                        ),
+                      ),
+                    ),
+                    style: ElevatedButton.styleFrom(primary: Colors.purple),
+                  ),
                 ],
               )
             ],
