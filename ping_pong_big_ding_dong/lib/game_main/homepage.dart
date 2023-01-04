@@ -1,11 +1,6 @@
 import 'dart:async';
-import 'dart:ui';
 import 'package:get/get.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
-import 'package:flutter/src/widgets/container.dart';
-import 'package:flutter/src/widgets/framework.dart';
-import 'package:get/get_core/get_core.dart';
 import 'package:lottie/lottie.dart';
 import 'package:ping_pong_big_ding_dong/game_main/ball.dart';
 import 'package:ping_pong_big_ding_dong/game_main/brick.dart';
@@ -46,7 +41,7 @@ class _HomePageState extends State<HomePage> {
 
   void startGame() {
     gameHasStarted = true;
-    Timer.periodic(Duration(milliseconds: 1), (timer) {
+    Timer.periodic(const Duration(milliseconds: 1), (timer) {
       highScore();
       // update direction
       updateDirection();
@@ -72,7 +67,7 @@ class _HomePageState extends State<HomePage> {
   void highScore() {
     scoreTime = 0;
     isStop = false;
-    Timer.periodic(Duration(seconds: 1), (timer) {
+    Timer.periodic(const Duration(seconds: 1), (timer) {
       if (isStop) {
         timer.cancel();
       } else {
@@ -91,7 +86,7 @@ class _HomePageState extends State<HomePage> {
           return AlertDialog(
             shape:
                 RoundedRectangleBorder(borderRadius: BorderRadius.circular(15)),
-            backgroundColor: Color.fromARGB(255, 58, 3, 63),
+            backgroundColor: const Color.fromARGB(255, 58, 3, 63),
             title: Center(
               child: Column(
                 children: [
@@ -100,8 +95,8 @@ class _HomePageState extends State<HomePage> {
                   ),
                   Text(
                     'Score : $scoreTime',
-                    style:
-                        TextStyle(fontFamily: 'Poppins', color: Colors.white),
+                    style: const TextStyle(
+                        fontFamily: 'Poppins', color: Colors.white),
                   ),
                 ],
               ),
@@ -112,9 +107,9 @@ class _HomePageState extends State<HomePage> {
                 child: ClipRRect(
                   borderRadius: BorderRadius.circular(5),
                   child: Container(
-                    padding: EdgeInsets.all(7),
+                    padding: const EdgeInsets.all(7),
                     color: Colors.deepPurple[100],
-                    child: Text(
+                    child: const Text(
                       "Play Again",
                       style:
                           TextStyle(color: Colors.black, fontFamily: 'Poppins'),
@@ -198,7 +193,7 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color.fromARGB(255, 3, 12, 92),
+      backgroundColor: const Color.fromARGB(255, 3, 12, 92),
       body: Center(
         child: Stack(
           children: [
@@ -218,9 +213,9 @@ class _HomePageState extends State<HomePage> {
                           backgroundColor: Colors.transparent,
                           primary: Colors.transparent,
                           shadowColor: Colors.transparent,
-                          animationDuration: Duration(microseconds: 0),
+                          animationDuration: const Duration(microseconds: 0),
                           onPrimary: Colors.transparent),
-                      child: Text(
+                      child: const Text(
                         ">",
                         style: TextStyle(fontFamily: 'Poppins', fontSize: 30),
                       )),
@@ -245,7 +240,7 @@ class _HomePageState extends State<HomePage> {
                           primary: Colors.transparent,
                           shadowColor: Colors.transparent,
                           onPrimary: Colors.transparent),
-                      child: Text(
+                      child: const Text(
                         "<",
                         style: TextStyle(fontFamily: 'Poppins', fontSize: 30),
                       )),

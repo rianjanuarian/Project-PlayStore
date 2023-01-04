@@ -3,7 +3,7 @@
    <application
         android:label="ping_pong_big_ding_dong"
         android:name="${applicationName}"
-        android:icon="@mipmap/ic_launcher">
+        android:icon="@mipmap/launcher_icon">
         <activity
             android:name=".MainActivity"
             android:exported="true"
