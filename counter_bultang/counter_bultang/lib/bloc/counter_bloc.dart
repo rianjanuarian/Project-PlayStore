@@ -12,8 +12,10 @@ class CounterBloc extends Bloc<CounterEvent, CounterState> {
 
   void _increment1(CounterEvent event, Emitter emit) {
     var a = (event is Increment1)
-        ? CounterState(state.value1! + 1)
-        : CounterState(state.value1! - 1);
+        ? CounterState(
+            (state.value1!.isNegative) ? state.value1 = 0 : state.value1! + 1)
+        : CounterState(
+            (state.value1!.isNegative) ? state.value1 = 0 : state.value1! - 1);
     emit(a);
   }
 }
