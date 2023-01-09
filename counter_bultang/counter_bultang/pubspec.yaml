@@ -39,6 +39,7 @@ dependencies:
   flutter_bloc: ^8.1.1
   bloc: ^8.1.0
   google_fonts: ^3.0.1
+  flutter_launcher_icons: ^0.11.0
 
 dev_dependencies:
   flutter_test:
