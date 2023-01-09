@@ -1,4 +1,4 @@
-package com.example.counter_bultang
+package com.counter_bultang
 
 import io.flutter.embedding.android.FlutterActivity
 

@@ -1,5 +1,5 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.counter_bultang">
+    package="com.counter_bultang">
    <application
         android:label="Penghitung Skor Badminton"
         android:name="${applicationName}"
