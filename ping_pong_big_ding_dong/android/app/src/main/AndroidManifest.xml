@@ -1,7 +1,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.ping_pong_ding_dong">
    <application
-        android:label="ping_pong_big_ding_dong"
+        android:label="Simple Endless Ping Pong"
         android:name="${applicationName}"
         android:icon="@mipmap/launcher_icon">
         <activity
