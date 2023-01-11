@@ -84,12 +84,17 @@ class MainPage extends StatelessWidget {
                     SizedBox(
                       height: 80,
                     ),
-                    ElevatedButton(
-                        style: ElevatedButton.styleFrom(primary: Colors.black),
-                        onPressed: () {
-                          bloc1.add(Reset1());
-                        },
-                        child: Text("Reset"))
+                    SizedBox(
+                      height: 50,
+                      width: 80,
+                      child: ElevatedButton(
+                          style:
+                              ElevatedButton.styleFrom(primary: Colors.black),
+                          onPressed: () {
+                            bloc1.add(Reset1());
+                          },
+                          child: Text("Reset")),
+                    )
                   ],
                 ),
               ),
@@ -162,12 +167,17 @@ class MainPage extends StatelessWidget {
                     SizedBox(
                       height: 80,
                     ),
-                    ElevatedButton(
-                        style: ElevatedButton.styleFrom(primary: Colors.black),
-                        onPressed: () {
-                          bloc2.add(Reset2());
-                        },
-                        child: Text("Reset"))
+                    SizedBox(
+                      height: 50,
+                      width: 80,
+                      child: ElevatedButton(
+                          style:
+                              ElevatedButton.styleFrom(primary: Colors.black),
+                          onPressed: () {
+                            bloc2.add(Reset2());
+                          },
+                          child: Text("Reset")),
+                    )
                   ],
                 ),
               ),
