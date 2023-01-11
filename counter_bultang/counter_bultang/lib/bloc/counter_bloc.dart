@@ -17,5 +17,9 @@ class CounterBloc extends Bloc<CounterEvent, CounterState> {
         : CounterState(
             (state.value1!.isNegative) ? state.value1 = 0 : state.value1! - 1);
     emit(a);
+    var b = (event is Reset1)
+        ? CounterState(state.value1 = 0)
+        : CounterState(state.value1);
+    emit(b);
   }
 }

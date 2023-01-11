@@ -15,5 +15,9 @@ class Counter2Bloc extends Bloc<Counter2Event, Counter2State> {
         : Counter2State(
             (state.value2!.isNegative) ? state.value2 = 0 : state.value2! - 1);
     emit(b);
+    var c = (event is Reset2)
+        ? Counter2State(state.value2 = 0)
+        : Counter2State(state.value2);
+    emit(c);
   }
 }

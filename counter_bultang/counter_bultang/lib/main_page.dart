@@ -40,7 +40,7 @@ class MainPage extends StatelessWidget {
                               : state.value1.toString(),
                           style: GoogleFonts.poppins(
                               textStyle:
-                                  TextStyle(fontSize: 25, color: Colors.white)),
+                                  TextStyle(fontSize: 30, color: Colors.white)),
                         );
                       },
                     ),
@@ -58,7 +58,10 @@ class MainPage extends StatelessWidget {
                               },
                               style: ElevatedButton.styleFrom(
                                   primary: Colors.black),
-                              child: Text("+")),
+                              child: Text(
+                                "+",
+                                style: TextStyle(fontSize: 40),
+                              )),
                         ),
                         SizedBox(
                           width: 50,
@@ -71,10 +74,22 @@ class MainPage extends StatelessWidget {
                               },
                               style: ElevatedButton.styleFrom(
                                   primary: Colors.black),
-                              child: Text("-")),
+                              child: Text(
+                                "-",
+                                style: TextStyle(fontSize: 40),
+                              )),
                         ),
                       ],
                     ),
+                    SizedBox(
+                      height: 80,
+                    ),
+                    ElevatedButton(
+                        style: ElevatedButton.styleFrom(primary: Colors.black),
+                        onPressed: () {
+                          bloc1.add(Reset1());
+                        },
+                        child: Text("Reset"))
                   ],
                 ),
               ),
@@ -103,7 +118,7 @@ class MainPage extends StatelessWidget {
                               : state.value2.toString(),
                           style: GoogleFonts.poppins(
                               textStyle:
-                                  TextStyle(fontSize: 25, color: Colors.white)),
+                                  TextStyle(fontSize: 30, color: Colors.white)),
                         );
                       },
                     ),
@@ -121,7 +136,10 @@ class MainPage extends StatelessWidget {
                               },
                               style: ElevatedButton.styleFrom(
                                   primary: Colors.black),
-                              child: Text("+")),
+                              child: Text(
+                                "+",
+                                style: TextStyle(fontSize: 40),
+                              )),
                         ),
                         SizedBox(
                           width: 40,
@@ -134,10 +152,22 @@ class MainPage extends StatelessWidget {
                               },
                               style: ElevatedButton.styleFrom(
                                   primary: Colors.black),
-                              child: Text("-")),
+                              child: Text(
+                                "-",
+                                style: TextStyle(fontSize: 40),
+                              )),
                         ),
                       ],
                     ),
+                    SizedBox(
+                      height: 80,
+                    ),
+                    ElevatedButton(
+                        style: ElevatedButton.styleFrom(primary: Colors.black),
+                        onPressed: () {
+                          bloc2.add(Reset2());
+                        },
+                        child: Text("Reset"))
                   ],
                 ),
               ),
