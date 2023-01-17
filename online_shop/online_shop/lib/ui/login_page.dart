@@ -172,6 +172,11 @@ class LoginPage extends StatelessWidget {
               ],
             ),
           ),
+          Padding(
+            padding: const EdgeInsets.only(top: 550, left: 120),
+            child: ElevatedButton(
+                onPressed: () {}, child: Text("Login With Google")),
+          ),
           Container(
             padding: const EdgeInsets.only(bottom: 15),
             child: Align(
