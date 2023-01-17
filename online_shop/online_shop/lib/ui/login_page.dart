@@ -21,37 +21,37 @@ class LoginPage extends StatelessWidget {
           //   ),
           // ),
 
-          Padding(
-            padding: const EdgeInsets.all(50.10),
-            child: Align(
-              alignment: Alignment.topRight,
-              child: SizedBox(
-                width: 100,
-                height: 100,
-                child: Stack(
-                  children: [
-                    SizedBox(
-                      width: 70,
-                      height: 70,
-                      child: Container(
-                        decoration: BoxDecoration(
-                            color: Colors.amber,
-                            borderRadius: BorderRadius.circular(10)),
-                      ),
-                    ),
-                    SizedBox(
-                      width: 60,
-                      height: 60,
-                      child: Container(
-                        margin: EdgeInsets.all(10),
-                        decoration: BoxDecoration(color: Colors.red),
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-            ),
-          ),
+          // Padding(
+          //   padding: const EdgeInsets.all(50.10),
+          //   child: Align(
+          //     alignment: Alignment.topRight,
+          //     child: SizedBox(
+          //       width: 100,
+          //       height: 100,
+          //       child: Stack(
+          //         children: [
+          //           SizedBox(
+          //             width: 90,
+          //             height: 90,
+          //             child: Container(
+          //               decoration: BoxDecoration(
+          //                   color: Colors.amber,
+          //                   borderRadius: BorderRadius.circular(10)),
+          //             ),
+          //           ),
+          //           SizedBox(
+          //             width: 80,
+          //             height: 80,
+          //             child: Container(
+          //               margin: EdgeInsets.all(10),
+          //               decoration: BoxDecoration(color: Colors.red),
+          //             ),
+          //           ),
+          //         ],
+          //       ),
+          //     ),
+          //   ),
+          // ),
           Center(
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
