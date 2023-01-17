@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/container.dart';
-import 'package:flutter/src/widgets/framework.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class LoginPage extends StatelessWidget {
@@ -16,17 +14,17 @@ class LoginPage extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Container(
-                  padding: EdgeInsets.only(right: 250),
+                  padding: const EdgeInsets.only(right: 250),
                   child: Text(
                     "LOGIN",
                     style: GoogleFonts.rowdies(fontSize: 30),
                   ),
                 ),
                 Container(
-                  padding: EdgeInsets.only(right: 185),
-                  child: Text("Please sign in to continue"),
+                  padding: const EdgeInsets.only(right: 185),
+                  child: const Text("Please sign in to continue"),
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 30,
                 ),
                 SizedBox(
@@ -37,7 +35,7 @@ class LoginPage extends StatelessWidget {
                           color: Colors.grey.withOpacity(0.5),
                           blurRadius: 7,
                           spreadRadius: 5,
-                          offset: Offset(6, 7))
+                          offset: const Offset(6, 7))
                     ]),
                     child: Container(
                       decoration: BoxDecoration(
@@ -46,24 +44,25 @@ class LoginPage extends StatelessWidget {
                       child: TextFormField(
                         decoration: InputDecoration(
                           enabledBorder: OutlineInputBorder(
-                              borderSide: BorderSide(color: Colors.amber),
+                              borderSide: const BorderSide(color: Colors.amber),
                               borderRadius: BorderRadius.circular(10)),
                           focusedBorder: OutlineInputBorder(
-                              borderSide: BorderSide(color: Colors.amber),
+                              borderSide: const BorderSide(color: Colors.amber),
                               borderRadius: BorderRadius.circular(10)),
-                          prefixIcon: Icon(
+                          prefixIcon: const Icon(
                             Icons.mail,
                             color: Colors.black,
                           ),
-                          prefixStyle: TextStyle(color: Colors.amber),
+                          prefixStyle: const TextStyle(color: Colors.amber),
                           labelText: "Email",
-                          floatingLabelStyle: TextStyle(color: Colors.black),
+                          floatingLabelStyle:
+                              const TextStyle(color: Colors.black),
                         ),
                       ),
                     ),
                   ),
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 30,
                 ),
                 SizedBox(
@@ -74,7 +73,7 @@ class LoginPage extends StatelessWidget {
                           color: Colors.grey.withOpacity(0.5),
                           blurRadius: 7,
                           spreadRadius: 5,
-                          offset: Offset(6, 7))
+                          offset: const Offset(6, 7))
                     ]),
                     child: Container(
                       decoration: BoxDecoration(
@@ -83,28 +82,29 @@ class LoginPage extends StatelessWidget {
                       child: TextFormField(
                         decoration: InputDecoration(
                           enabledBorder: OutlineInputBorder(
-                              borderSide: BorderSide(color: Colors.amber),
+                              borderSide: const BorderSide(color: Colors.amber),
                               borderRadius: BorderRadius.circular(10)),
                           focusedBorder: OutlineInputBorder(
-                              borderSide: BorderSide(color: Colors.amber),
+                              borderSide: const BorderSide(color: Colors.amber),
                               borderRadius: BorderRadius.circular(10)),
-                          prefixIcon: Icon(
+                          prefixIcon: const Icon(
                             Icons.lock,
                             color: Colors.black,
                           ),
-                          prefixStyle: TextStyle(color: Colors.amber),
+                          prefixStyle: const TextStyle(color: Colors.amber),
                           labelText: "Password",
-                          floatingLabelStyle: TextStyle(color: Colors.black),
+                          floatingLabelStyle:
+                              const TextStyle(color: Colors.black),
                         ),
                       ),
                     ),
                   ),
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 15,
                 ),
                 Container(
-                  padding: EdgeInsets.only(left: 230),
+                  padding: const EdgeInsets.only(left: 230),
                   child: Container(
                     decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(20),
@@ -113,16 +113,16 @@ class LoginPage extends StatelessWidget {
                               color: Colors.amber.withOpacity(0.5),
                               blurRadius: 5,
                               spreadRadius: 2,
-                              offset: Offset(1, 2))
+                              offset: const Offset(1, 2))
                         ]),
                     child: SizedBox(
                         width: 120,
                         child: ElevatedButton(
                           style: ElevatedButton.styleFrom(
-                              shape: StadiumBorder(),
+                              shape: const StadiumBorder(),
                               backgroundColor: Colors.amber),
                           onPressed: () {},
-                          child: Text("LOGIN"),
+                          child: const Text("LOGIN"),
                         )),
                   ),
                 ),
@@ -130,13 +130,13 @@ class LoginPage extends StatelessWidget {
             ),
           ),
           Container(
-            padding: EdgeInsets.only(bottom: 15),
+            padding: const EdgeInsets.only(bottom: 15),
             child: Align(
               alignment: Alignment.bottomCenter,
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Text("Don't have an account?"),
+                  const Text("Don't have an account?"),
                   InkWell(
                     child: Text(
                       " Sign Up",
