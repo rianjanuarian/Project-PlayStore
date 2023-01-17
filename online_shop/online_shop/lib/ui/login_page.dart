@@ -31,26 +31,72 @@ class LoginPage extends StatelessWidget {
                 ),
                 SizedBox(
                   width: 350,
-                  child: TextFormField(
-                    decoration: InputDecoration(
-                      border: OutlineInputBorder(
+                  child: Container(
+                    decoration: BoxDecoration(boxShadow: [
+                      BoxShadow(
+                          color: Colors.grey.withOpacity(0.5),
+                          blurRadius: 7,
+                          spreadRadius: 5,
+                          offset: Offset(6, 7))
+                    ]),
+                    child: Container(
+                      decoration: BoxDecoration(
+                          color: Colors.white,
                           borderRadius: BorderRadius.circular(10)),
-                      prefixIcon: Icon(Icons.email),
-                      labelText: "Email",
+                      child: TextFormField(
+                        decoration: InputDecoration(
+                          enabledBorder: OutlineInputBorder(
+                              borderSide: BorderSide(color: Colors.amber),
+                              borderRadius: BorderRadius.circular(10)),
+                          focusedBorder: OutlineInputBorder(
+                              borderSide: BorderSide(color: Colors.amber),
+                              borderRadius: BorderRadius.circular(10)),
+                          prefixIcon: Icon(
+                            Icons.mail,
+                            color: Colors.black,
+                          ),
+                          prefixStyle: TextStyle(color: Colors.amber),
+                          labelText: "Email",
+                          floatingLabelStyle: TextStyle(color: Colors.black),
+                        ),
+                      ),
                     ),
                   ),
                 ),
                 SizedBox(
-                  height: 10,
+                  height: 30,
                 ),
                 SizedBox(
                   width: 350,
-                  child: TextFormField(
-                    decoration: InputDecoration(
-                      border: OutlineInputBorder(
+                  child: Container(
+                    decoration: BoxDecoration(boxShadow: [
+                      BoxShadow(
+                          color: Colors.grey.withOpacity(0.5),
+                          blurRadius: 7,
+                          spreadRadius: 5,
+                          offset: Offset(6, 7))
+                    ]),
+                    child: Container(
+                      decoration: BoxDecoration(
+                          color: Colors.white,
                           borderRadius: BorderRadius.circular(10)),
-                      prefixIcon: Icon(Icons.lock),
-                      labelText: "Password",
+                      child: TextFormField(
+                        decoration: InputDecoration(
+                          enabledBorder: OutlineInputBorder(
+                              borderSide: BorderSide(color: Colors.amber),
+                              borderRadius: BorderRadius.circular(10)),
+                          focusedBorder: OutlineInputBorder(
+                              borderSide: BorderSide(color: Colors.amber),
+                              borderRadius: BorderRadius.circular(10)),
+                          prefixIcon: Icon(
+                            Icons.lock,
+                            color: Colors.black,
+                          ),
+                          prefixStyle: TextStyle(color: Colors.amber),
+                          labelText: "Password",
+                          floatingLabelStyle: TextStyle(color: Colors.black),
+                        ),
+                      ),
                     ),
                   ),
                 ),
@@ -58,11 +104,27 @@ class LoginPage extends StatelessWidget {
                   height: 15,
                 ),
                 Container(
-                  padding: EdgeInsets.only(left: 250),
-                  child: SizedBox(
-                      width: 100,
-                      child: ElevatedButton(
-                          onPressed: () {}, child: Text("Login"))),
+                  padding: EdgeInsets.only(left: 230),
+                  child: Container(
+                    decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(20),
+                        boxShadow: [
+                          BoxShadow(
+                              color: Colors.amber.withOpacity(0.5),
+                              blurRadius: 5,
+                              spreadRadius: 2,
+                              offset: Offset(1, 2))
+                        ]),
+                    child: SizedBox(
+                        width: 120,
+                        child: ElevatedButton(
+                          style: ElevatedButton.styleFrom(
+                              shape: StadiumBorder(),
+                              backgroundColor: Colors.amber),
+                          onPressed: () {},
+                          child: Text("LOGIN"),
+                        )),
+                  ),
                 ),
               ],
             ),
