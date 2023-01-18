@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:online_shop/ui/login_page.dart';
+import 'package:online_shop/ui/login_register/login_page.dart';
 
 class RegisterPage extends StatelessWidget {
   const RegisterPage({super.key});

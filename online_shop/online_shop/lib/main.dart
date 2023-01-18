@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get_navigation/get_navigation.dart';
-import 'package:online_shop/ui/login_page.dart';
+import 'package:online_shop/ui/login_register/login_page.dart';
 
 void main() {
   runApp(const MyApp());
