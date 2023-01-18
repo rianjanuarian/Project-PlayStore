@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/container.dart';
-import 'package:flutter/src/widgets/framework.dart';
 
 class MainPage extends StatelessWidget {
   const MainPage({super.key});
@@ -12,13 +10,17 @@ class MainPage extends StatelessWidget {
         children: [
           Container(
               margin: EdgeInsets.only(
-                  right: MediaQuery.of(context).size.width * 0.75,
                   top: MediaQuery.of(context).size.height * 0.04),
               child: Padding(
                 padding: const EdgeInsets.only(left: 30),
-                child: Text(
-                  "Hello Ryan,",
-                  style: TextStyle(fontWeight: FontWeight.w700),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  children: [
+                    Text(
+                      "Hello Ryan,",
+                      style: TextStyle(fontWeight: FontWeight.w700),
+                    ),
+                  ],
                 ),
               )),
           Row(
@@ -26,7 +28,7 @@ class MainPage extends StatelessWidget {
             children: [
               Padding(
                 padding: const EdgeInsets.only(left: 30),
-                child: Text("What are you buying today"),
+                child: Text("What are you buying today?"),
               ),
               Container(
                   margin: EdgeInsets.only(right: 10),
