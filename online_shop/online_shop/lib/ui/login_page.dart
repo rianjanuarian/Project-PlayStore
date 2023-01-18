@@ -147,33 +147,55 @@ class LoginPage extends StatelessWidget {
                   ),
                 ),
                 const SizedBox(
-                  height: 15,
+                  height: 20,
                 ),
-                Container(
-                  padding: const EdgeInsets.only(left: 230),
-                  child: Container(
-                    decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(20),
-                        boxShadow: [
-                          BoxShadow(
-                              color: Colors.amber.withOpacity(0.5),
-                              blurRadius: 5,
-                              spreadRadius: 2,
-                              offset: const Offset(1, 2))
-                        ]),
-                    child: SizedBox(
-                        width: 120,
-                        child: ElevatedButton(
-                          style: ElevatedButton.styleFrom(
-                              shape: const StadiumBorder(),
-                              backgroundColor: Colors.amber),
-                          onPressed: () {
-                            Get.to(() => MainPage());
-                          },
-                          child: const Text("LOGIN"),
-                        )),
+                Padding(
+                  padding: const EdgeInsets.only(left: 40, right: 40),
+                  child: SizedBox(
+                    width: 350,
+                    child: ElevatedButton(
+                      style: ElevatedButton.styleFrom(
+                          shape: const StadiumBorder(),
+                          backgroundColor: Colors.amber[300]),
+                      onPressed: () {
+                        Get.off(() => const MainPage());
+                      },
+                      child: Text(
+                        "Continue",
+                        style: GoogleFonts.rowdies(
+                            fontSize: 15, color: Colors.black),
+                      ),
+                    ),
                   ),
                 ),
+                Container(
+                    margin: EdgeInsets.all(20),
+                    child: (MediaQuery.of(context).viewInsets.bottom != 0)
+                        ? Container()
+                        : Expanded(
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                Container(
+                                  height: 1,
+                                  width: 130,
+                                  color: Colors.grey[300],
+                                ),
+                                SizedBox(
+                                  width: 5,
+                                ),
+                                Text("or"),
+                                SizedBox(
+                                  width: 5,
+                                ),
+                                Container(
+                                  height: 1,
+                                  width: 130,
+                                  color: Colors.grey[300],
+                                ),
+                              ],
+                            ),
+                          ))
               ],
             ),
           ),
@@ -181,7 +203,7 @@ class LoginPage extends StatelessWidget {
             margin:
                 EdgeInsets.only(top: MediaQuery.of(context).size.height * 0.75),
             child: Padding(
-              padding: const EdgeInsets.only(left: 60, right: 60),
+              padding: const EdgeInsets.only(left: 40, right: 40),
               child: MaterialButton(
                 color: Colors.white70,
                 shape: const StadiumBorder(),
