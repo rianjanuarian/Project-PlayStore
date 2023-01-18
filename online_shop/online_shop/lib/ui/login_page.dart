@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:online_shop/ui/main_page.dart';
 import 'package:online_shop/ui/register_page.dart';
 
 class LoginPage extends StatelessWidget {
@@ -166,7 +167,9 @@ class LoginPage extends StatelessWidget {
                           style: ElevatedButton.styleFrom(
                               shape: const StadiumBorder(),
                               backgroundColor: Colors.amber),
-                          onPressed: () {},
+                          onPressed: () {
+                            Get.to(() => MainPage());
+                          },
                           child: const Text("LOGIN"),
                         )),
                   ),
@@ -181,7 +184,7 @@ class LoginPage extends StatelessWidget {
               padding: const EdgeInsets.only(left: 60, right: 60),
               child: MaterialButton(
                 color: Colors.white70,
-                shape: StadiumBorder(),
+                shape: const StadiumBorder(),
                 onPressed: () {},
                 elevation: 10,
                 child: Row(
@@ -190,17 +193,17 @@ class LoginPage extends StatelessWidget {
                     Container(
                       height: 30.0,
                       width: 30.0,
-                      decoration: BoxDecoration(
+                      decoration: const BoxDecoration(
                         image: DecorationImage(
                             image: AssetImage('assets/google_logo.png'),
                             fit: BoxFit.cover),
                         shape: BoxShape.circle,
                       ),
                     ),
-                    SizedBox(
+                    const SizedBox(
                       width: 20,
                     ),
-                    Text("Sign In with Google")
+                    const Text("Sign In with Google")
                   ],
                 ),
               ),
