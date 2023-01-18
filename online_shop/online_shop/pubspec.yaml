@@ -40,6 +40,7 @@ dependencies:
   get: ^4.6.5
   avoid_keyboard: ^0.3.0
   flutter_keyboard_visibility: ^5.4.0
+  intl: ^0.18.0
 
 dev_dependencies:
   flutter_test:
