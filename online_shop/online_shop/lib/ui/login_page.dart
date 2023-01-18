@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:online_shop/ui/register_page.dart';
 
 class LoginPage extends StatelessWidget {
   const LoginPage({super.key});
@@ -172,12 +174,36 @@ class LoginPage extends StatelessWidget {
               ],
             ),
           ),
-          Center(
+          Container(
+            margin:
+                EdgeInsets.only(top: MediaQuery.of(context).size.height * 0.75),
             child: Padding(
-              padding: EdgeInsets.only(
-                  top: MediaQuery.of(context).size.height * 0.55),
-              child: ElevatedButton(
-                  onPressed: () {}, child: Text("Login With Google")),
+              padding: const EdgeInsets.only(left: 60, right: 60),
+              child: MaterialButton(
+                color: Colors.white70,
+                shape: StadiumBorder(),
+                onPressed: () {},
+                elevation: 10,
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Container(
+                      height: 30.0,
+                      width: 30.0,
+                      decoration: BoxDecoration(
+                        image: DecorationImage(
+                            image: AssetImage('assets/google_logo.png'),
+                            fit: BoxFit.cover),
+                        shape: BoxShape.circle,
+                      ),
+                    ),
+                    SizedBox(
+                      width: 20,
+                    ),
+                    Text("Sign In with Google")
+                  ],
+                ),
+              ),
             ),
           ),
           Container(
@@ -193,7 +219,9 @@ class LoginPage extends StatelessWidget {
                       " Sign Up",
                       style: TextStyle(color: Colors.amber[800]),
                     ),
-                    onTap: () {},
+                    onTap: () {
+                      Get.to(() => const RegisterPage());
+                    },
                   )
                 ],
               ),
