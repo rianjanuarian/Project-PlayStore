@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:online_shop/ui/mainpage/homepage.dart';
 import 'package:online_shop/ui/login_register/register_page.dart';
+import 'package:online_shop/ui/mainpage/homepage2.dart';
 
 class LoginPage extends StatelessWidget {
   const LoginPage({super.key});
@@ -158,7 +159,7 @@ class LoginPage extends StatelessWidget {
                           shape: const StadiumBorder(),
                           backgroundColor: Colors.amber[300]),
                       onPressed: () {
-                        Get.off(() => const MainPage());
+                        Get.off(() => const HomePage2());
                       },
                       child: Text(
                         "Continue",
