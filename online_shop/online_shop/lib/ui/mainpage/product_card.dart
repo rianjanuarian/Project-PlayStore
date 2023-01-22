@@ -28,20 +28,61 @@ class ProductCard extends StatelessWidget {
                   borderRadius: BorderRadius.circular(5)),
               child: Column(
                 children: [
-                  SizedBox(
-                      width: MediaQuery.of(context).size.width * 0.3,
-                      child: Image.network(image)),
-                  Text(
-                    name,
-                    style: TextStyle(fontWeight: FontWeight.w700),
+                  Stack(
+                    children: [
+                      Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Container(
+                            decoration: BoxDecoration(color: Colors.grey[300]),
+                            child: SizedBox(
+                                width: MediaQuery.of(context).size.width * 0.31,
+                                child: Image.network(image)),
+                          ),
+                          SizedBox(
+                            height: 10,
+                          ),
+                          Padding(
+                            padding: const EdgeInsets.only(left: 5.0),
+                            child: Column(
+                              children: [
+                                Text(
+                                  name,
+                                  style: TextStyle(fontWeight: FontWeight.w700),
+                                ),
+                              ],
+                            ),
+                          ),
+                          Padding(
+                            padding: const EdgeInsets.only(left: 4.0),
+                            child: Text(description),
+                          ),
+                          SizedBox(
+                            height: 10,
+                          ),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            crossAxisAlignment: CrossAxisAlignment.center,
+                            children: [
+                              Text(NumberFormat.currency(
+                                      locale: 'id',
+                                      symbol: 'Rp.',
+                                      decimalDigits: 0)
+                                  .format(price)),
+                              SizedBox(
+                                width: 10,
+                              ),
+                              ElevatedButton(
+                                  style: ElevatedButton.styleFrom(
+                                      shape: CircleBorder()),
+                                  onPressed: () {},
+                                  child: Text("+"))
+                            ],
+                          ),
+                        ],
+                      ),
+                    ],
                   ),
-                  Text(description),
-                  SizedBox(
-                    height: 10,
-                  ),
-                  Text(NumberFormat.currency(
-                          locale: 'id', symbol: 'Rp.', decimalDigits: 0)
-                      .format(price)),
                 ],
               ),
             ),

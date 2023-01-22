@@ -3,8 +3,20 @@ import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:online_shop/ui/mainpage/product_card.dart';
 
-class HomePage2 extends StatelessWidget {
+class HomePage2 extends StatefulWidget {
   const HomePage2({super.key});
+
+  @override
+  State<HomePage2> createState() => _HomePage2State();
+}
+
+class _HomePage2State extends State<HomePage2> {
+  int _selectedNavbar = 0;
+  void _changeSelectedNavBar(int index) {
+    setState(() {
+      _selectedNavbar = index;
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -48,8 +60,8 @@ class HomePage2 extends StatelessWidget {
             padding: const EdgeInsets.only(left: 20.0, right: 20, bottom: 20),
             child: ElevatedButton(
                 onPressed: () {},
-                style:
-                    ElevatedButton.styleFrom(backgroundColor: Colors.grey[200]),
+                style: ElevatedButton.styleFrom(
+                    backgroundColor: Colors.grey[200], shape: StadiumBorder()),
                 child: Row(
                   children: [
                     Icon(
@@ -100,7 +112,7 @@ class HomePage2 extends StatelessWidget {
                 InkWell(
                   child: Text(
                     " See all",
-                    style: TextStyle(color: Colors.amber[800]),
+                    style: TextStyle(color: Colors.blue[800]),
                   ),
                   onTap: () {},
                 )
@@ -108,7 +120,7 @@ class HomePage2 extends StatelessWidget {
             ),
           ),
           SizedBox(
-            height: 220,
+            height: 250,
             child: ListView.builder(
                 scrollDirection: Axis.horizontal,
                 itemCount: 15,
@@ -116,7 +128,7 @@ class HomePage2 extends StatelessWidget {
                       padding: const EdgeInsets.fromLTRB(20, 0, 5, 0),
                       child: ProductCard(
                           name: "HEADPHONE",
-                          description: "description",
+                          description: "Great Headphone",
                           price: 23000,
                           image:
                               "https://media.discordapp.net/attachments/418302783331106818/1065648213580853358/google_logo.png?width=671&height=671"),
@@ -131,7 +143,7 @@ class HomePage2 extends StatelessWidget {
                 InkWell(
                   child: Text(
                     " See all",
-                    style: TextStyle(color: Colors.amber[800]),
+                    style: TextStyle(color: Colors.blue[800]),
                   ),
                   onTap: () {},
                 )
@@ -139,7 +151,7 @@ class HomePage2 extends StatelessWidget {
             ),
           ),
           SizedBox(
-            height: 350,
+            height: 250,
             child: ListView.builder(
                 scrollDirection: Axis.horizontal,
                 itemCount: 15,
@@ -147,7 +159,7 @@ class HomePage2 extends StatelessWidget {
                       padding: const EdgeInsets.fromLTRB(20, 0, 5, 0),
                       child: ProductCard(
                           name: "HEADPHONE",
-                          description: "description",
+                          description: "DESC",
                           price: 23000,
                           image:
                               "https://media.discordapp.net/attachments/418302783331106818/1065648213580853358/google_logo.png?width=671&height=671"),
@@ -160,16 +172,25 @@ class HomePage2 extends StatelessWidget {
           BottomNavigationBarItem(
               icon: Icon(Icons.home),
               label: 'Home',
-              backgroundColor: Colors.amber),
+              backgroundColor: Colors.white),
           BottomNavigationBarItem(
               icon: Icon(Icons.favorite),
               label: 'Favourite',
-              backgroundColor: Colors.amber),
+              backgroundColor: Colors.white),
           BottomNavigationBarItem(
               icon: Icon(Icons.notifications),
               label: 'Notification',
-              backgroundColor: Colors.amber),
+              backgroundColor: Colors.white),
+          BottomNavigationBarItem(
+              icon: Icon(Icons.account_box),
+              label: 'Profile',
+              backgroundColor: Colors.white),
         ],
+        currentIndex: _selectedNavbar,
+        selectedItemColor: Colors.blue,
+        unselectedItemColor: Colors.grey,
+        showUnselectedLabels: true,
+        onTap: _changeSelectedNavBar,
       ),
     );
   }
