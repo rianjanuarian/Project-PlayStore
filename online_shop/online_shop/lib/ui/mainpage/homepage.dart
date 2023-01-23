@@ -110,21 +110,21 @@ class MainPage extends StatelessWidget {
           child: Text("Highlight"),
         ),
 
-        Container(
-          height: 250,
-          child: ListView.builder(
-              scrollDirection: Axis.horizontal,
-              itemCount: 15,
-              itemBuilder: (BuildContext context, int index) => Padding(
-                    padding: const EdgeInsets.fromLTRB(10, 0, 5, 0),
-                    child: ProductCard(
-                        name: "HEADPHONE",
-                        description: "description",
-                        price: 23000,
-                        image:
-                            "https://cdn.discordapp.com/attachments/674477685594128386/1065249632642420776/FB_IMG_1674045688699.jpg"),
-                  )),
-        ),
+        // Container(
+        //   height: 250,
+        //   child: ListView.builder(
+        //       scrollDirection: Axis.horizontal,
+        //       itemCount: 15,
+        //       itemBuilder: (BuildContext context, int index) => Padding(
+        //             padding: const EdgeInsets.fromLTRB(10, 0, 5, 0),
+        //             child: ProductCard(
+        //                 name: "HEADPHONE",
+        //                 description: "description",
+        //                 price: 23000,
+        //                 image:
+        //                     "https://cdn.discordapp.com/attachments/674477685594128386/1065249632642420776/FB_IMG_1674045688699.jpg"),
+        //           )),
+        // ),
 
         Padding(
           padding: const EdgeInsets.all(8.0),

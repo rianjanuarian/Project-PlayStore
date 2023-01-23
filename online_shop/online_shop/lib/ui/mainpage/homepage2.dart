@@ -31,14 +31,14 @@ class _HomePage2State extends State<HomePage2> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text("Hello Ryan,"),
+                  Text(
+                    "Hello Ryan,",
+                    style: TextStyle(fontWeight: FontWeight.w700),
+                  ),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      Text(
-                        "What are you buying today ?",
-                        style: TextStyle(fontWeight: FontWeight.w700),
-                      ),
+                      Text("What are you buying today?"),
                       Align(
                         alignment: Alignment.topRight,
                         child: Container(
@@ -79,7 +79,9 @@ class _HomePage2State extends State<HomePage2> {
                 )),
           ),
           Padding(
-            padding: const EdgeInsets.only(bottom: 20.0),
+            padding: const EdgeInsets.only(
+              bottom: 20.0,
+            ),
             child: SizedBox(
               height: 30,
               child: ListView.builder(
@@ -125,13 +127,13 @@ class _HomePage2State extends State<HomePage2> {
                 scrollDirection: Axis.horizontal,
                 itemCount: 15,
                 itemBuilder: (BuildContext context, int index) => Padding(
-                      padding: const EdgeInsets.fromLTRB(20, 0, 5, 0),
+                      padding: const EdgeInsets.fromLTRB(10, 0, 5, 0),
                       child: ProductCard(
-                          name: "HEADPHONE",
+                          name: "Headphone",
                           description: "Great Headphone",
                           price: 23000,
                           image:
-                              "https://media.discordapp.net/attachments/418302783331106818/1065648213580853358/google_logo.png?width=671&height=671"),
+                              "https://media.discordapp.net/attachments/418302783331106818/1066981198280273960/google_logo.png?width=671&height=671"),
                     )),
           ),
           Padding(
@@ -151,19 +153,18 @@ class _HomePage2State extends State<HomePage2> {
             ),
           ),
           SizedBox(
-            height: 250,
+            height: 300,
             child: ListView.builder(
                 scrollDirection: Axis.horizontal,
                 itemCount: 15,
                 itemBuilder: (BuildContext context, int index) => Padding(
-                      padding: const EdgeInsets.fromLTRB(20, 0, 5, 0),
-                      child: ProductCard(
-                          name: "HEADPHONE",
-                          description: "DESC",
-                          price: 23000,
-                          image:
-                              "https://media.discordapp.net/attachments/418302783331106818/1065648213580853358/google_logo.png?width=671&height=671"),
-                    )),
+                    padding: const EdgeInsets.fromLTRB(10, 0, 5, 0),
+                    child: ProductCard(
+                        name: "Joystick",
+                        description: "The Ultimate Headphone",
+                        price: 23000,
+                        image:
+                            "https://media.discordapp.net/attachments/986713553203515402/1066442664171557026/image.png?width=1193&height=671"))),
           ),
         ],
       )),
@@ -173,10 +174,10 @@ class _HomePage2State extends State<HomePage2> {
               icon: Icon(Icons.home),
               label: 'Home',
               backgroundColor: Colors.white),
-          BottomNavigationBarItem(
-              icon: Icon(Icons.favorite),
-              label: 'Favourite',
-              backgroundColor: Colors.white),
+          // BottomNavigationBarItem(
+          //     icon: Icon(Icons.favorite),
+          //     label: 'Favourite',
+          //     backgroundColor: Colors.white),
           BottomNavigationBarItem(
               icon: Icon(Icons.notifications),
               label: 'Notification',
