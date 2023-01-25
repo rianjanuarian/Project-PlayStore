@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
+import 'package:online_shop/model/product.dart';
 import 'package:online_shop/ui/mainpage/product_card.dart';
 
 class HomePage2 extends StatefulWidget {
@@ -20,6 +21,7 @@ class _HomePage2State extends State<HomePage2> {
 
   @override
   Widget build(BuildContext context) {
+    Products products;
     return Scaffold(
       body: SingleChildScrollView(
           child: Column(
@@ -127,13 +129,19 @@ class _HomePage2State extends State<HomePage2> {
                 scrollDirection: Axis.horizontal,
                 itemCount: 15,
                 itemBuilder: (BuildContext context, int index) => Padding(
-                      padding: const EdgeInsets.fromLTRB(10, 0, 5, 0),
-                      child: ProductCard(
-                          name: "Headphone",
-                          description: "Great Headphone",
-                          price: 23000,
-                          image:
-                              "https://media.discordapp.net/attachments/418302783331106818/1066981198280273960/google_logo.png?width=671&height=671"),
+                    padding: const EdgeInsets.fromLTRB(10, 0, 5, 0),
+                    child: ProductCard(
+                        descriptionp: "Headset Super",
+                        pricep: 50000,
+                        imagep:
+                            "https://cdn.discordapp.com/attachments/986713553203515402/1066753227296608306/326240751_1042899663295752_826465983452364938_n.png",
+                        namep: "Cucut")
+                    // ProductCard(
+                    //     name: "Headphone",
+                    //     description: "Great Headphone",
+                    //     price: 23000,
+                    //     image:
+                    //         "https://media.discordapp.net/attachments/418302783331106818/1066981198280273960/google_logo.png?width=671&height=671"),
                     )),
           ),
           Padding(
@@ -160,11 +168,18 @@ class _HomePage2State extends State<HomePage2> {
                 itemBuilder: (BuildContext context, int index) => Padding(
                     padding: const EdgeInsets.fromLTRB(10, 0, 5, 0),
                     child: ProductCard(
-                        name: "Joystick",
-                        description: "The Ultimate Headphone",
-                        price: 23000,
-                        image:
-                            "https://media.discordapp.net/attachments/986713553203515402/1066442664171557026/image.png?width=1193&height=671"))),
+                        descriptionp: "Kadal Elektrik",
+                        pricep: 100000,
+                        imagep:
+                            "https://media.discordapp.net/attachments/674477685594128386/1065158874342117417/1425950877p.jpg",
+                        namep: "dante")
+                    // ProductCard(
+                    //     name: "Joystick",
+                    //     description: "The Ultimate Headphone",
+                    //     price: 23000,
+                    //     image:
+                    //         "https://media.discordapp.net/attachments/986713553203515402/1066442664171557026/image.png?width=1193&height=671")
+                    )),
           ),
         ],
       )),
