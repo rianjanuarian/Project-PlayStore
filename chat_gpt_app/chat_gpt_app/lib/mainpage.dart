@@ -44,23 +44,59 @@ class MainPage extends StatelessWidget {
             ],
           ),
         ),
-        body: ListView.builder(
-          itemBuilder: (BuildContext context, int index) => Column(
+        body: SingleChildScrollView(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
-              SizedBox(
-                height: 30,
-              ),
               Container(
-                  margin: EdgeInsets.only(
-                      left: MediaQuery.of(context).size.width * 0.45),
-                  child: ListChat()),
-              SizedBox(
-                height: 30,
+                height: MediaQuery.of(context).size.height * 0.8,
+                child: ListView.builder(
+                  itemBuilder: (BuildContext context, int index) => Column(
+                    children: [
+                      SizedBox(
+                        height: 30,
+                      ),
+                      Container(
+                          margin: EdgeInsets.only(
+                              left: MediaQuery.of(context).size.width * 0.45),
+                          child: ListChat()),
+                      SizedBox(
+                        height: 30,
+                      ),
+                      Container(
+                          margin: EdgeInsets.only(
+                              right: MediaQuery.of(context).size.width * 0.45),
+                          child: BotChat())
+                    ],
+                  ),
+                ),
               ),
-              Container(
-                  margin: EdgeInsets.only(
-                      right: MediaQuery.of(context).size.width * 0.45),
-                  child: BotChat())
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                children: [
+                  Container(
+                    width: MediaQuery.of(context).size.width * 0.7,
+                    height: MediaQuery.of(context).size.width * 0.1,
+                    decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(30),
+                        border: Border.all(width: 2, color: Colors.amber),
+                        color: Colors.grey[200]),
+                    child: Center(
+                        child: Container(
+                            padding: EdgeInsets.only(left: 30, right: 30),
+                            child: TextField())),
+                  ),
+                  Container(
+                    width: MediaQuery.of(context).size.width * 0.1,
+                    height: MediaQuery.of(context).size.width * 0.1,
+                    decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(30),
+                        border: Border.all(width: 2, color: Colors.amber),
+                        color: Colors.grey[200]),
+                    child: Center(child: Icon(Icons.send)),
+                  )
+                ],
+              )
             ],
           ),
         ));
