@@ -44,6 +44,9 @@ class ListChat extends StatelessWidget {
                       Text(
                         formattedTime,
                         style: TextStyle(fontSize: 10),
+                      ),
+                      SizedBox(
+                        width: 5,
                       )
                     ],
                   ))

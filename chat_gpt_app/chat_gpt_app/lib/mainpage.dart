@@ -17,7 +17,7 @@ class MainPage extends StatelessWidget {
             children: [
               Container(
                 margin: EdgeInsets.only(
-                    left: MediaQuery.of(context).size.width * 0.36),
+                    left: MediaQuery.of(context).size.width * 0.23),
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
@@ -35,8 +35,8 @@ class MainPage extends StatelessWidget {
               Container(
                 margin: EdgeInsets.only(
                     left: MediaQuery.of(context).size.width * 0.3),
-                child: Image.network(
-                  "https://cdn.discordapp.com/attachments/418302783331106818/1066981198280273960/google_logo.png",
+                child: Image.asset(
+                  "assets/chatbot.png",
                   width: 30,
                   height: 30,
                 ),
@@ -72,29 +72,48 @@ class MainPage extends StatelessWidget {
                 ),
               ),
               Row(
-                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
                   Container(
-                    width: MediaQuery.of(context).size.width * 0.7,
-                    height: MediaQuery.of(context).size.width * 0.1,
+                    width: MediaQuery.of(context).size.width * 0.8,
+                    height: MediaQuery.of(context).size.width * 0.12,
                     decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(30),
                         border: Border.all(width: 2, color: Colors.amber),
                         color: Colors.grey[200]),
-                    child: Center(
-                        child: Container(
-                            padding: EdgeInsets.only(left: 30, right: 30),
-                            child: TextField())),
+                    child: Container(
+                        padding: EdgeInsets.all(10),
+                        child: TextField(
+                          decoration: InputDecoration(
+                              border: InputBorder.none,
+                              focusedBorder: InputBorder.none,
+                              enabledBorder: InputBorder.none,
+                              errorBorder: InputBorder.none,
+                              disabledBorder: InputBorder.none,
+                              isCollapsed: true,
+                              isDense: true,
+                              hintText: "Write a message"),
+                        )),
                   ),
                   Container(
-                    width: MediaQuery.of(context).size.width * 0.1,
-                    height: MediaQuery.of(context).size.width * 0.1,
-                    decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(30),
-                        border: Border.all(width: 2, color: Colors.amber),
-                        color: Colors.grey[200]),
-                    child: Center(child: Icon(Icons.send)),
-                  )
+                      width: MediaQuery.of(context).size.width * 0.12,
+                      height: MediaQuery.of(context).size.width * 0.12,
+                      decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(30),
+                          border: Border.all(width: 2, color: Colors.amber),
+                          color: Colors.grey[200]),
+                      child: ElevatedButton(
+                        onPressed: () {},
+                        style: ElevatedButton.styleFrom(
+                            shape: StadiumBorder(),
+                            backgroundColor: Colors.amber),
+                        child: Container(
+                          child: Icon(
+                            Icons.send,
+                            size: 20,
+                          ),
+                        ),
+                      )),
                 ],
               )
             ],
