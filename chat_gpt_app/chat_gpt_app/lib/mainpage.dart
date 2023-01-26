@@ -20,7 +20,7 @@ class _MainPageState extends State<MainPage> {
   List userChat = [ListChat()];
   ListChat? user;
   final messagecontroller = TextEditingController();
-  String apikey = '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';
+  String apikey = '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';
   final messages = [MessageModel(true, "")];
 
   void clearText() {
