@@ -14,7 +14,7 @@ class LandingPage extends StatelessWidget {
       body: Center(
         child: ElevatedButton(
             onPressed: () {
-              Get.to(() => const MainPage());
+              Get.to(() => MainPage());
             },
             child: Text("Hop in")),
       ),
