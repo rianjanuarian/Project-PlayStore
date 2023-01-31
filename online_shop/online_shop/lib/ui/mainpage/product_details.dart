@@ -1,6 +1,12 @@
+import 'dart:ui';
+
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
+import 'package:carousel_slider/carousel_slider.dart';
+import 'package:online_shop/model/product.dart';
+import 'package:online_shop/ui/mainpage/product_card.dart';
+import 'package:online_shop/ui/mainpage/slider.dart';
 
 class ProductDetail extends StatefulWidget {
   const ProductDetail({super.key});
@@ -10,6 +16,8 @@ class ProductDetail extends StatefulWidget {
 }
 
 class _ProductDetailState extends State<ProductDetail> {
+  final CarouselController _controller = CarouselController();
+  Products? products;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -39,9 +47,7 @@ class _ProductDetailState extends State<ProductDetail> {
       body: SingleChildScrollView(
           child: Column(
         children: [
-          Stack(
-            children: [],
-          )
+          Stack(children: [CarouselWithIndicatorDemo()])
         ],
       )),
     );

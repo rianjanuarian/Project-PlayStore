@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:online_shop/ui/mainpage/homepage.dart';
+
 import 'package:online_shop/ui/login_register/register_page.dart';
 import 'package:online_shop/ui/mainpage/homepage2.dart';
 
