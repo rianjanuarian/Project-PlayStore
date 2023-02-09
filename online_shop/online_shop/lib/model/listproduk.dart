@@ -14,3 +14,9 @@ class Produk {
       this.image,
       this.price});
 }
+
+// class Kategori {
+//   String? kategori;
+
+//   Kategori({this.kategori});
+// }

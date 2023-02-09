@@ -15,9 +15,7 @@ class HomePage2 extends StatefulWidget {
 }
 
 class _HomePage2State extends State<HomePage2> {
-  final category = ['All', 'Computers', 'Headset', 'Phone', 'Accessories'];
   final iconCategory = [
-    Icon(Icons.clear_all_outlined),
     Icon(Icons.computer),
     Icon(Icons.headset),
     Icon(Icons.phone_android_rounded),
@@ -32,7 +30,6 @@ class _HomePage2State extends State<HomePage2> {
 
   @override
   Widget build(BuildContext context) {
-    Products products;
     return Scaffold(
       body: SingleChildScrollView(
           child: Column(
@@ -99,7 +96,7 @@ class _HomePage2State extends State<HomePage2> {
               height: 30,
               child: ListView.builder(
                   scrollDirection: Axis.horizontal,
-                  itemCount: category.length,
+                  itemCount: 4,
                   itemBuilder: (BuildContext context, int index) => Padding(
                         padding: EdgeInsets.fromLTRB(20, 0, 5, 0),
                         child: Container(
@@ -117,7 +114,7 @@ class _HomePage2State extends State<HomePage2> {
                               Padding(
                                 padding:
                                     const EdgeInsets.only(left: 3.0, right: 3),
-                                child: Text(category[index]),
+                                child: Text(''),
                               )
                             ],
                           ),
@@ -130,14 +127,14 @@ class _HomePage2State extends State<HomePage2> {
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                Text("Trending sales"),
+                Text("Latest Products"),
                 InkWell(
                   child: Text(
                     " See all",
                     style: TextStyle(color: Colors.blue[800]),
                   ),
                   onTap: () {
-                    // print(fetchProducts());
+                    print("W");
                     Get.to(() => ProductList());
                   },
                 )
@@ -146,24 +143,37 @@ class _HomePage2State extends State<HomePage2> {
           ),
           SizedBox(
             height: 250,
-            child: ListView.builder(
-                scrollDirection: Axis.horizontal,
-                itemCount: 15,
-                itemBuilder: (BuildContext context, int index) => Padding(
-                    padding: const EdgeInsets.fromLTRB(10, 0, 5, 0),
-                    child: ProductCard(
-                        descriptionp: "Headset Super",
-                        pricep: 50000,
-                        imagep:
-                            "https://cdn.discordapp.com/attachments/986713553203515402/1066753227296608306/326240751_1042899663295752_826465983452364938_n.png",
-                        namep: "Cucut")
-                    // ProductCard(
-                    //     name: "Headphone",
-                    //     description: "Great Headphone",
-                    //     price: 23000,
-                    //     image:
-                    //         "https://media.discordapp.net/attachments/418302783331106818/1066981198280273960/google_logo.png?width=671&height=671"),
-                    )),
+            child: FutureBuilder(
+                future: Services.listProduk(),
+                builder: (context, snapshot) {
+                  if (snapshot.hasData) {
+                    return ListView.builder(
+                        scrollDirection: Axis.horizontal,
+                        itemCount: 10,
+                        // snapshot.data!.length,
+                        itemBuilder: (BuildContext context, int index) {
+                          final value = snapshot.data![index];
+                          return Padding(
+                              padding: const EdgeInsets.fromLTRB(10, 0, 5, 0),
+                              child: ProductCard(
+                                  descriptionp: value.description ?? "  ",
+                                  pricep: value.price ?? 0,
+                                  imagep: value.image ?? "",
+                                  namep: value.title ?? "")
+                              // ProductCard(
+                              //     name: "Headphone",
+                              //     description: "Great Headphone",
+                              //     price: 23000,
+                              //     image:
+                              //         "https://media.discordapp.net/attachments/418302783331106818/1066981198280273960/google_logo.png?width=671&height=671"),
+                              );
+                        });
+                  } else {
+                    return Center(
+                      child: CircularProgressIndicator(),
+                    );
+                  }
+                }),
           ),
           Padding(
             padding: const EdgeInsets.only(left: 20.0, right: 20, bottom: 10),
@@ -183,24 +193,37 @@ class _HomePage2State extends State<HomePage2> {
           ),
           SizedBox(
             height: 300,
-            child: ListView.builder(
-                scrollDirection: Axis.horizontal,
-                itemCount: 15,
-                itemBuilder: (BuildContext context, int index) => Padding(
-                    padding: const EdgeInsets.fromLTRB(10, 0, 5, 0),
-                    child: ProductCard(
-                        descriptionp: "Kadal Elektrik",
-                        pricep: 100000,
-                        imagep:
-                            "https://media.discordapp.net/attachments/674477685594128386/1065158874342117417/1425950877p.jpg",
-                        namep: "dante")
-                    // ProductCard(
-                    //     name: "Joystick",
-                    //     description: "The Ultimate Headphone",
-                    //     price: 23000,
-                    //     image:
-                    //         "https://media.discordapp.net/attachments/986713553203515402/1066442664171557026/image.png?width=1193&height=671")
-                    )),
+            child: FutureBuilder(
+                future: Services.listProduk(),
+                builder: (context, snapshot) {
+                  if (snapshot.hasData) {
+                    return ListView.builder(
+                        scrollDirection: Axis.horizontal,
+                        itemCount: 6,
+                        // snapshot.data!.length,
+                        itemBuilder: (BuildContext context, int index) {
+                          final value = snapshot.data![index];
+                          return Padding(
+                              padding: const EdgeInsets.fromLTRB(10, 0, 5, 0),
+                              child: ProductCard(
+                                  descriptionp: value.description ?? "  ",
+                                  pricep: value.price ?? 0,
+                                  imagep: value.image ?? "",
+                                  namep: value.title ?? "")
+                              // ProductCard(
+                              //     name: "Headphone",
+                              //     description: "Great Headphone",
+                              //     price: 23000,
+                              //     image:
+                              //         "https://media.discordapp.net/attachments/418302783331106818/1066981198280273960/google_logo.png?width=671&height=671"),
+                              );
+                        });
+                  } else {
+                    return Center(
+                      child: CircularProgressIndicator(),
+                    );
+                  }
+                }),
           ),
         ],
       )),

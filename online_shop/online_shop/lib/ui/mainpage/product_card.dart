@@ -1,19 +1,15 @@
-import 'package:flutter/cupertino.dart';
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/container.dart';
-import 'package:flutter/src/widgets/framework.dart';
 import 'package:get/get.dart';
 import 'package:intl/intl.dart';
 import 'package:online_shop/ui/mainpage/product_details.dart';
 import 'package:online_shop/model/product.dart';
 
+// ignore: must_be_immutable
 class ProductCard extends StatelessWidget {
-  Products? products;
   String namep;
   String descriptionp;
   String imagep;
-  int pricep;
+  num pricep;
   ProductCard(
       {super.key,
       required this.descriptionp,
@@ -42,8 +38,8 @@ class ProductCard extends StatelessWidget {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Container(
-                              margin: EdgeInsets.all(6),
-                              padding: EdgeInsets.all(1),
+                              margin: const EdgeInsets.all(6),
+                              padding: const EdgeInsets.all(1),
                               decoration:
                                   BoxDecoration(color: Colors.grey[100]),
                               child: SizedBox(
@@ -52,11 +48,11 @@ class ProductCard extends StatelessWidget {
                                   height:
                                       MediaQuery.of(context).size.width * 0.30,
                                   child: Image.network(
-                                    products?.image ?? imagep,
+                                    imagep,
                                   )),
                               //
                             ),
-                            SizedBox(
+                            const SizedBox(
                               height: 10,
                             ),
                             Padding(
@@ -64,8 +60,10 @@ class ProductCard extends StatelessWidget {
                               child: Column(
                                 children: [
                                   Text(
-                                    products?.title ?? namep,
-                                    style: TextStyle(
+                                    (namep).length > 25
+                                        ? namep.substring(0, 20)
+                                        : namep,
+                                    style: const TextStyle(
                                         fontWeight: FontWeight.w700,
                                         fontSize: 12),
                                   ),
@@ -75,12 +73,10 @@ class ProductCard extends StatelessWidget {
                             Padding(
                               padding: const EdgeInsets.only(left: 4.0),
                               child: Text(
-                                (products?.description ?? descriptionp).length >
-                                        10
-                                    ? products?.description ??
-                                        descriptionp.substring(0, 10) + "..."
-                                    : products?.description ?? descriptionp,
-                                style: TextStyle(fontSize: 12),
+                                (descriptionp).length > 25
+                                    ? "${descriptionp.substring(0, 20)}..."
+                                    : descriptionp,
+                                style: const TextStyle(fontSize: 12),
                               ),
                             ),
                             // products!.description!.length  > 10
@@ -88,22 +84,24 @@ class ProductCard extends StatelessWidget {
                             //             " asdasd".substring(0, 15) + "..."
                             //         : products?.description ?? "ASdasd",
                             //     style: TextStyle(fontSize: 12),
-                            SizedBox(
+                            const SizedBox(
                               height: 30,
                             ),
                             Row(
                               children: [
+                                SizedBox(
+                                  width: 5,
+                                ),
                                 Text(
                                   NumberFormat.currency(
-                                          locale: 'id',
-                                          symbol: 'Rp.',
-                                          decimalDigits: 0)
-                                      .format(products?.price ?? pricep),
-                                  style: TextStyle(
+                                    locale: 'en-us',
+                                    symbol: 'USD.',
+                                  ).format(pricep),
+                                  style: const TextStyle(
                                       fontSize: 12,
                                       fontWeight: FontWeight.w700),
                                 ),
-                                SizedBox(
+                                const SizedBox(
                                   width: 10,
                                 ),
                               ],
@@ -121,9 +119,9 @@ class ProductCard extends StatelessWidget {
         Padding(
           padding: const EdgeInsets.fromLTRB(85, 185, 0, 5),
           child: ElevatedButton(
-              style: ElevatedButton.styleFrom(shape: CircleBorder()),
+              style: ElevatedButton.styleFrom(shape: const CircleBorder()),
               onPressed: () {},
-              child: Text("+")),
+              child: const Text("+")),
         ),
       ],
     );
