@@ -1,4 +1,5 @@
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
@@ -51,7 +52,7 @@ class ProductCard extends StatelessWidget {
                                   height:
                                       MediaQuery.of(context).size.width * 0.30,
                                   child: Image.network(
-                                    products?.firstImage ?? imagep,
+                                    products?.image ?? imagep,
                                   )),
                               //
                             ),
@@ -63,7 +64,7 @@ class ProductCard extends StatelessWidget {
                               child: Column(
                                 children: [
                                   Text(
-                                    products?.name ?? namep,
+                                    products?.title ?? namep,
                                     style: TextStyle(
                                         fontWeight: FontWeight.w700,
                                         fontSize: 12),

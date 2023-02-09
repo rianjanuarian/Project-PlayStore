@@ -174,7 +174,7 @@ class _ProductDetailState extends State<ProductDetail> {
             ),
           ),
           Padding(
-            padding: const EdgeInsets.only(left: 8.0, right: 8, top: 15),
+            padding: const EdgeInsets.only(left: 8.0, right: 8, top: 8),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
@@ -221,6 +221,15 @@ class _ProductDetailState extends State<ProductDetail> {
               ],
             ),
           ),
+          SizedBox(
+            height: 10,
+          ),
+          Divider(
+            color: Colors.grey[300], //color of divider
+            height: 2, //height spacing of divider
+            thickness: 1, //thickness of divier line
+            //spacing at the end of divider
+          ),
           Padding(
             padding: const EdgeInsets.only(bottom: 8.0, right: 310, top: 8),
             child: Text(
@@ -240,6 +249,7 @@ class _ProductDetailState extends State<ProductDetail> {
                   child: TextField(
                       decoration: InputDecoration(
                           hintText: 'Enter Promo Code',
+                          border: InputBorder.none,
                           hintStyle: TextStyle(fontSize: 11))),
                 ),
                 InkWell(
@@ -251,6 +261,45 @@ class _ProductDetailState extends State<ProductDetail> {
                 )
               ],
             ),
+          ),
+          SizedBox(
+            height: 10,
+          ),
+          SizedBox(
+            width: MediaQuery.of(context).size.width * 0.95,
+            height: MediaQuery.of(context).size.height * 0.075,
+            child: ElevatedButton(
+                onPressed: () {},
+                style: ElevatedButton.styleFrom(shape: StadiumBorder()),
+                child: Row(
+                  children: [
+                    SizedBox(
+                      width: 10,
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.only(right: 8.0),
+                      child: Icon(
+                        Icons.card_travel,
+                        size: 17,
+                      ),
+                    ),
+                    Text(
+                      "Add item to bag",
+                      style: TextStyle(fontSize: 12),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.only(left: 50),
+                      child: Text(""),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.only(left: 80.0),
+                      child: Text(
+                        "Rp.1.000.000",
+                        style: TextStyle(fontSize: 12),
+                      ),
+                    )
+                  ],
+                )),
           )
         ],
       )),

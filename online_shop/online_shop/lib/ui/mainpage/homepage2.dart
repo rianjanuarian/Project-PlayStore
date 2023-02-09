@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
+import 'package:get/get.dart';
+import 'package:online_shop/model/apiservices.dart';
 import 'package:online_shop/model/product.dart';
 import 'package:online_shop/ui/mainpage/product_card.dart';
+import 'package:online_shop/ui/mainpage/product_list/product_list.dart';
 
 class HomePage2 extends StatefulWidget {
   const HomePage2({super.key});
@@ -12,6 +15,14 @@ class HomePage2 extends StatefulWidget {
 }
 
 class _HomePage2State extends State<HomePage2> {
+  final category = ['All', 'Computers', 'Headset', 'Phone', 'Accessories'];
+  final iconCategory = [
+    Icon(Icons.clear_all_outlined),
+    Icon(Icons.computer),
+    Icon(Icons.headset),
+    Icon(Icons.phone_android_rounded),
+    Icon(Icons.category_outlined)
+  ];
   int _selectedNavbar = 0;
   void _changeSelectedNavBar(int index) {
     setState(() {
@@ -88,7 +99,7 @@ class _HomePage2State extends State<HomePage2> {
               height: 30,
               child: ListView.builder(
                   scrollDirection: Axis.horizontal,
-                  itemCount: 15,
+                  itemCount: category.length,
                   itemBuilder: (BuildContext context, int index) => Padding(
                         padding: EdgeInsets.fromLTRB(20, 0, 5, 0),
                         child: Container(
@@ -97,10 +108,17 @@ class _HomePage2State extends State<HomePage2> {
                               border: Border.all()),
                           child: Row(
                             children: [
-                              Icon(
-                                Icons.category,
+                              SizedBox(
+                                width: 5,
                               ),
-                              Text("Category")
+                              Container(
+                                child: iconCategory[index],
+                              ),
+                              Padding(
+                                padding:
+                                    const EdgeInsets.only(left: 3.0, right: 3),
+                                child: Text(category[index]),
+                              )
                             ],
                           ),
                         ),
@@ -118,7 +136,10 @@ class _HomePage2State extends State<HomePage2> {
                     " See all",
                     style: TextStyle(color: Colors.blue[800]),
                   ),
-                  onTap: () {},
+                  onTap: () {
+                    // print(fetchProducts());
+                    Get.to(() => ProductList());
+                  },
                 )
               ],
             ),
