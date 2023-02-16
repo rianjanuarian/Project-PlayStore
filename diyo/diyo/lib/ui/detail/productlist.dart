@@ -1,5 +1,6 @@
 import 'package:diyo/model/products.dart';
 import 'package:diyo/ui/detail/fooddetail.dart';
+import 'package:diyo/ui/detail/restaurantdetail.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/src/widgets/placeholder.dart';
@@ -29,7 +30,7 @@ class ProductList extends StatelessWidget {
       padding: const EdgeInsets.all(10.0),
       child: InkWell(
         onTap: () {
-          Get.to(() => FoodDetail());
+          Get.to(() => RestaurantDetail());
         },
         child: Row(
           children: [

@@ -23,7 +23,7 @@ class Homepage extends StatelessWidget {
           ),
           Expanded(
             child: ListView.builder(
-                itemCount: 3,
+                itemCount: 1,
                 scrollDirection: Axis.vertical,
                 itemBuilder: (BuildContext context, int index) {
                   return Column(
@@ -48,6 +48,15 @@ class Homepage extends StatelessWidget {
                           jarak: '20 km'),
                       ProductList(
                           id: 3,
+                          namarestoran: 'Foodstall',
+                          alamatRestoran: 'Jl Jember no 14 ',
+                          kategori: 'Chinese Food',
+                          prep: '5 menit',
+                          image:
+                              'https://media.discordapp.net/attachments/418302783331106818/1066981198280273960/google_logo.png?width=671&height=671',
+                          jarak: '20 km'),
+                      ProductList(
+                          id: 4,
                           namarestoran: 'Foodstall',
                           alamatRestoran: 'Jl Jember no 14 ',
                           kategori: 'Chinese Food',
