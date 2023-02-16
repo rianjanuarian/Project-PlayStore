@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/container.dart';
-import 'package:flutter/src/widgets/framework.dart';
+
 import 'package:get/get.dart';
 import 'package:online_shop/model/apiservices.dart';
-import 'package:online_shop/model/product.dart';
+
 import 'package:online_shop/ui/mainpage/product_card.dart';
 import 'package:online_shop/ui/mainpage/product_list/product_list.dart';
 
