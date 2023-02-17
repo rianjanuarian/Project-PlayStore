@@ -6,6 +6,7 @@ import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/src/widgets/placeholder.dart';
 import 'package:get/get.dart';
 
+//gadipake
 class ProductList extends StatelessWidget {
   int id;
   String namarestoran;
@@ -29,9 +30,7 @@ class ProductList extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.all(15.0),
       child: InkWell(
-        onTap: () {
-          Get.to(() => RestaurantDetail());
-        },
+        onTap: () {},
         child: Stack(
           children: [
             Padding(

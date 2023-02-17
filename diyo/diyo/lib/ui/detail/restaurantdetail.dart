@@ -1,11 +1,15 @@
+import 'package:diyo/model/products.dart';
 import 'package:diyo/ui/detail/fooddetail.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/src/widgets/placeholder.dart';
 import 'package:get/get.dart';
+import 'package:intl/intl.dart';
 
 class RestaurantDetail extends StatefulWidget {
-  const RestaurantDetail({super.key});
+  final Products items;
+  final int index;
+  RestaurantDetail({required this.items, required this.index});
 
   @override
   State<RestaurantDetail> createState() => _RestaurantDetailState();
@@ -15,13 +19,20 @@ class _RestaurantDetailState extends State<RestaurantDetail> {
   bool isSelected = false;
   int _selectedIndex = -1;
   List kategori = ['Dominico Premium', 'Dominico Blend', 'Non Coffee'];
-  List menus = ['Premium Latte', 'Premium Long Black', 'Milk Sparkling'];
+  List menus = [
+    'Premium Latte',
+    'Premium Long Black',
+    'Milk Sparkling',
+    'tester'
+  ];
   List gambar = [
     'https://media.discordapp.net/attachments/674477685594128386/1075138102982627449/image.png?width=1193&height=671',
     'https://media.discordapp.net/attachments/674477685594128386/1075104698874462248/image.png?width=1193&height=671',
+    'https://media.discordapp.net/attachments/674477685594128386/1075018031320797184/image.png?width=1297&height=671',
     'https://media.discordapp.net/attachments/674477685594128386/1075018031320797184/image.png?width=1297&height=671'
   ];
-  List harga = ['10.000', '20.000', '30.000'];
+  List harga = ['10.000', '20.000', '30.000', '123422'];
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -39,7 +50,7 @@ class _RestaurantDetailState extends State<RestaurantDetail> {
     return Stack(
       children: [
         Image.network(
-          'https://media.discordapp.net/attachments/674477685594128386/1075104698874462248/image.png?width=1193&height=671',
+          widget.items.resimage ?? '',
           width: MediaQuery.of(context).size.width * 1,
           height: MediaQuery.of(context).size.height * 0.34,
         ),
@@ -123,17 +134,17 @@ class _RestaurantDetailState extends State<RestaurantDetail> {
       padding: const EdgeInsets.only(left: 8, right: 8),
       child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
         Text(
-          "Dominico Coffee",
+          widget.items.restaurantname ?? '',
           style: TextStyle(fontWeight: FontWeight.w700, fontSize: 20),
         ),
         SizedBox(
           height: 15,
         ),
-        Text("Kopi"),
+        Text(widget.items.foodKind ?? ''),
         SizedBox(
           height: 15,
         ),
-        Text("Jalan Mayang 29 Medan"),
+        Text(widget.items.address ?? ''),
         SizedBox(
           height: 5,
         ),
@@ -155,15 +166,15 @@ class _RestaurantDetailState extends State<RestaurantDetail> {
             ),
             SizedBox(width: 5),
             Text(
-              "BUKA",
+              (widget.items.opens ?? '').toUpperCase(),
               style: TextStyle(color: Colors.orange[900]),
             ),
             SizedBox(
               width: 5,
             ),
-            Text("until 19.00 today"),
+            Text("until ${widget.items.waktuBuka ?? ''} today"),
             SizedBox(
-              width: MediaQuery.of(context).size.width * 0.27,
+              width: MediaQuery.of(context).size.width * 0.32,
             ),
             Container(
               padding: EdgeInsets.all(4),
@@ -181,7 +192,7 @@ class _RestaurantDetailState extends State<RestaurantDetail> {
                     width: 5,
                   ),
                   Text(
-                    "1209239 km",
+                    widget.items.distance ?? '',
                     style: TextStyle(color: Colors.white),
                   )
                 ],
@@ -215,7 +226,7 @@ class _RestaurantDetailState extends State<RestaurantDetail> {
                               : Colors.white,
                           borderRadius: BorderRadius.circular(5)),
                       child: Text(
-                        kategori[index],
+                        widget.items.category![index],
                         style: TextStyle(
                             color: _selectedIndex == index
                                 ? Colors.white
@@ -231,35 +242,56 @@ class _RestaurantDetailState extends State<RestaurantDetail> {
   }
 
   Widget menuItem() {
-    return SizedBox(
-      height: MediaQuery.of(context).size.height * 0.35,
-      child: ListView.builder(
-          itemCount: menus.length,
-          scrollDirection: Axis.vertical,
-          itemBuilder: (BuildContext contex, int index) {
-            return InkWell(
-              onTap: () {
-                Get.to(() => FoodDetail());
-              },
-              child: Row(
-                children: [
-                  Image.network(
-                    gambar[index],
-                    width: 80,
-                    height: 80,
+    return ListView.builder(
+        shrinkWrap: true,
+        itemCount: widget.items.menu!.length,
+        physics: NeverScrollableScrollPhysics(),
+        itemBuilder: (BuildContext contex, int index) {
+          return InkWell(
+            onTap: () {
+              // Get.to(() => FoodDetail(item: items[index],));
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => FoodDetail(
+                    item: products[index],
+                    index: index,
                   ),
-                  // ignore: prefer_const_constructors
-                  SizedBox(
-                    width: 10,
+                ),
+              );
+            },
+            child: Stack(
+              children: [
+                Padding(
+                    padding: EdgeInsets.only(left: 350, top: 35),
+                    child: Text(
+                      NumberFormat.currency(
+                              locale: 'id', symbol: '', decimalDigits: 0)
+                          .format(widget.items.price![index]),
+                      style: TextStyle(fontWeight: FontWeight.w700),
+                    )),
+                Padding(
+                  padding: const EdgeInsets.fromLTRB(10, 3, 10, 3),
+                  child: Row(
+                    children: [
+                      Image.network(
+                        widget.items.menuImage![index],
+                        width: 80,
+                        height: 80,
+                      ),
+                      const SizedBox(
+                        width: 10,
+                      ),
+                      Text(
+                        widget.items.menu![index],
+                        style: TextStyle(fontWeight: FontWeight.w700),
+                      ),
+                    ],
                   ),
-                  Row(
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    children: [Text(menus[index]), Text(harga[index])],
-                  )
-                ],
-              ),
-            );
-          }),
-    );
+                ),
+              ],
+            ),
+          );
+        });
   }
 }

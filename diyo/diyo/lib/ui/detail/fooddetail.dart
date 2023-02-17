@@ -1,11 +1,15 @@
+import 'package:diyo/model/products.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/src/widgets/placeholder.dart';
 import 'package:get/get.dart';
+import 'package:intl/intl.dart';
 
 class FoodDetail extends StatefulWidget {
-  const FoodDetail({super.key});
+  final Products item;
+  final int index;
 
+  FoodDetail({required this.item, required this.index});
   @override
   State<FoodDetail> createState() => _FoodDetailState();
 }
@@ -28,7 +32,7 @@ class _FoodDetailState extends State<FoodDetail> {
     return Stack(
       children: [
         Image.network(
-          'https://media.discordapp.net/attachments/674477685594128386/1072219599313063956/image.png?width=1315&height=671',
+          widget.item.menuImage![widget.index],
           width: MediaQuery.of(context).size.width * 1,
           height: MediaQuery.of(context).size.height * 0.34,
         ),
@@ -64,11 +68,12 @@ class _FoodDetailState extends State<FoodDetail> {
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             Text(
-              "Fish Fried",
+              widget.item.menu![widget.index],
               style: TextStyle(fontWeight: FontWeight.w700, fontSize: 20),
             ),
             Text(
-              "28.000",
+              NumberFormat.currency(locale: 'id', symbol: '', decimalDigits: 0)
+                  .format(widget.item.price![widget.index]),
               style: TextStyle(
                   fontSize: 20,
                   fontWeight: FontWeight.w700,
