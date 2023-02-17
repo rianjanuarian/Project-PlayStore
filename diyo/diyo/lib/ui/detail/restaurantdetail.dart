@@ -5,11 +5,14 @@ import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/src/widgets/placeholder.dart';
 import 'package:get/get.dart';
 import 'package:intl/intl.dart';
+import 'package:qrscan/qrscan.dart';
 
 class RestaurantDetail extends StatefulWidget {
   final Products items;
   final int index;
-  RestaurantDetail({required this.items, required this.index});
+  final String scans;
+  RestaurantDetail(
+      {required this.items, required this.index, required this.scans});
 
   @override
   State<RestaurantDetail> createState() => _RestaurantDetailState();
@@ -18,20 +21,6 @@ class RestaurantDetail extends StatefulWidget {
 class _RestaurantDetailState extends State<RestaurantDetail> {
   bool isSelected = false;
   int _selectedIndex = -1;
-  List kategori = ['Dominico Premium', 'Dominico Blend', 'Non Coffee'];
-  List menus = [
-    'Premium Latte',
-    'Premium Long Black',
-    'Milk Sparkling',
-    'tester'
-  ];
-  List gambar = [
-    'https://media.discordapp.net/attachments/674477685594128386/1075138102982627449/image.png?width=1193&height=671',
-    'https://media.discordapp.net/attachments/674477685594128386/1075104698874462248/image.png?width=1193&height=671',
-    'https://media.discordapp.net/attachments/674477685594128386/1075018031320797184/image.png?width=1297&height=671',
-    'https://media.discordapp.net/attachments/674477685594128386/1075018031320797184/image.png?width=1297&height=671'
-  ];
-  List harga = ['10.000', '20.000', '30.000', '123422'];
 
   @override
   Widget build(BuildContext context) {
@@ -55,7 +44,7 @@ class _RestaurantDetailState extends State<RestaurantDetail> {
           height: MediaQuery.of(context).size.height * 0.34,
         ),
         Padding(
-          padding: const EdgeInsets.all(8.0),
+          padding: const EdgeInsets.only(top: 50.0, left: 30),
           child: Container(
             width: 30,
             height: 30,
@@ -74,11 +63,12 @@ class _RestaurantDetailState extends State<RestaurantDetail> {
             ),
           ),
         ),
-        Padding(
-          padding: const EdgeInsets.only(top: 200, left: 10),
+        Positioned(
+          top: MediaQuery.of(context).size.height * 0.25,
+          left: MediaQuery.of(context).size.width * 0.02,
           child: Container(
-              width: 100,
-              height: 25,
+              width: MediaQuery.of(context).size.width * 0.3,
+              height: MediaQuery.of(context).size.height * 0.03,
               decoration: BoxDecoration(
                   color: Colors.orange[900],
                   borderRadius: BorderRadiusDirectional.circular(5)),
@@ -95,17 +85,18 @@ class _RestaurantDetailState extends State<RestaurantDetail> {
                     width: 5,
                   ),
                   Text(
-                    "No. Meja 1",
+                    "No meja anda adalah ${widget.scans}",
                     style: TextStyle(color: Colors.white, fontSize: 12),
                   ),
                 ],
               ))),
         ),
-        Padding(
-          padding: const EdgeInsets.only(left: 360, top: 220),
+        Positioned(
+          top: MediaQuery.of(context).size.height * 0.31,
+          left: MediaQuery.of(context).size.width * 0.88,
           child: Container(
-            width: 30,
-            height: 30,
+            width: MediaQuery.of(context).size.width * 0.08,
+            height: MediaQuery.of(context).size.height * 0.04,
             decoration: BoxDecoration(
                 color: Colors.white, borderRadius: BorderRadius.circular(20)),
             child: InkWell(
@@ -118,10 +109,12 @@ class _RestaurantDetailState extends State<RestaurantDetail> {
                     ? const Icon(
                         Icons.favorite,
                         color: Colors.red,
+                        size: 30,
                       )
                     : const Icon(
                         Icons.favorite_border,
                         color: Colors.red,
+                        size: 25,
                       )),
           ),
         )
@@ -174,7 +167,7 @@ class _RestaurantDetailState extends State<RestaurantDetail> {
             ),
             Text("until ${widget.items.waktuBuka ?? ''} today"),
             SizedBox(
-              width: MediaQuery.of(context).size.width * 0.32,
+              width: MediaQuery.of(context).size.width * 0.5,
             ),
             Container(
               padding: EdgeInsets.all(4),
@@ -204,9 +197,9 @@ class _RestaurantDetailState extends State<RestaurantDetail> {
           height: 15,
         ),
         Container(
-          height: 30,
+          height: MediaQuery.of(context).size.height * 0.02,
           child: ListView.builder(
-              itemCount: kategori.length,
+              itemCount: widget.items.category!.length,
               shrinkWrap: true,
               scrollDirection: Axis.horizontal,
               itemBuilder: (BuildContext context, int index) {
@@ -249,21 +242,16 @@ class _RestaurantDetailState extends State<RestaurantDetail> {
         itemBuilder: (BuildContext contex, int index) {
           return InkWell(
             onTap: () {
-              // Get.to(() => FoodDetail(item: items[index],));
-              Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (context) => FoodDetail(
+              Get.to(() => FoodDetail(
                     item: products[index],
                     index: index,
-                  ),
-                ),
-              );
+                  ));
             },
             child: Stack(
               children: [
                 Padding(
-                    padding: EdgeInsets.only(left: 350, top: 35),
+                    padding: EdgeInsets.only(
+                        left: MediaQuery.of(context).size.width * 0.9, top: 35),
                     child: Text(
                       NumberFormat.currency(
                               locale: 'id', symbol: '', decimalDigits: 0)

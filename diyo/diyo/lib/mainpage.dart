@@ -5,6 +5,7 @@ import 'package:diyo/ui/page/pesanan.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/src/widgets/placeholder.dart';
+import 'package:qrscan/qrscan.dart ' as scanner;
 
 class MainPage extends StatefulWidget {
   const MainPage({super.key});
@@ -27,7 +28,10 @@ class _MainPageState extends State<MainPage> {
       ),
       floatingActionButton: FloatingActionButton(
         backgroundColor: Colors.orange[900],
-        onPressed: () {},
+        onPressed: () async {
+          String? scans;
+          scans = await scanner.scan();
+        },
         child: Icon(Icons.qr_code_scanner),
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
