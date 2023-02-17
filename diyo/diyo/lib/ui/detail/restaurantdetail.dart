@@ -1,3 +1,4 @@
+import 'package:diyo/ui/detail/fooddetail.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/src/widgets/placeholder.dart';
@@ -14,6 +15,13 @@ class _RestaurantDetailState extends State<RestaurantDetail> {
   bool isSelected = false;
   int _selectedIndex = -1;
   List kategori = ['Dominico Premium', 'Dominico Blend', 'Non Coffee'];
+  List menus = ['Premium Latte', 'Premium Long Black', 'Milk Sparkling'];
+  List gambar = [
+    'https://media.discordapp.net/attachments/674477685594128386/1075138102982627449/image.png?width=1193&height=671',
+    'https://media.discordapp.net/attachments/674477685594128386/1075104698874462248/image.png?width=1193&height=671',
+    'https://media.discordapp.net/attachments/674477685594128386/1075018031320797184/image.png?width=1297&height=671'
+  ];
+  List harga = ['10.000', '20.000', '30.000'];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -21,17 +29,13 @@ class _RestaurantDetailState extends State<RestaurantDetail> {
       body: SingleChildScrollView(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            stackTop(context),
-            description(context),
-            // menuItem(context)
-          ],
+          children: [stackTop(), description(), menuItem()],
         ),
       ),
     );
   }
 
-  Widget stackTop(BuildContext context) {
+  Widget stackTop() {
     return Stack(
       children: [
         Image.network(
@@ -114,7 +118,7 @@ class _RestaurantDetailState extends State<RestaurantDetail> {
     );
   }
 
-  Widget description(BuildContext context) {
+  Widget description() {
     return Padding(
       padding: const EdgeInsets.only(left: 8, right: 8),
       child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
@@ -162,7 +166,7 @@ class _RestaurantDetailState extends State<RestaurantDetail> {
               width: MediaQuery.of(context).size.width * 0.27,
             ),
             Container(
-              padding: EdgeInsets.fromLTRB(3, 2, 2, 3),
+              padding: EdgeInsets.all(4),
               decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(7),
                   color: Colors.orange[900]),
@@ -170,7 +174,11 @@ class _RestaurantDetailState extends State<RestaurantDetail> {
                 children: [
                   Icon(
                     Icons.location_on_sharp,
+                    size: 15,
                     color: Colors.white,
+                  ),
+                  SizedBox(
+                    width: 5,
                   ),
                   Text(
                     "1209239 km",
@@ -222,12 +230,36 @@ class _RestaurantDetailState extends State<RestaurantDetail> {
     );
   }
 
-  Widget menuItem(BuildContext context) {
-    return Container(
-      height: 60,
-      child: ListView.builder(itemBuilder: (BuildContext contex, int index) {
-        return Container();
-      }),
+  Widget menuItem() {
+    return SizedBox(
+      height: MediaQuery.of(context).size.height * 0.35,
+      child: ListView.builder(
+          itemCount: menus.length,
+          scrollDirection: Axis.vertical,
+          itemBuilder: (BuildContext contex, int index) {
+            return InkWell(
+              onTap: () {
+                Get.to(() => FoodDetail());
+              },
+              child: Row(
+                children: [
+                  Image.network(
+                    gambar[index],
+                    width: 80,
+                    height: 80,
+                  ),
+                  // ignore: prefer_const_constructors
+                  SizedBox(
+                    width: 10,
+                  ),
+                  Row(
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [Text(menus[index]), Text(harga[index])],
+                  )
+                ],
+              ),
+            );
+          }),
     );
   }
 }

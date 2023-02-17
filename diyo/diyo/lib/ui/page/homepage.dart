@@ -1,3 +1,4 @@
+import 'package:diyo/model/products.dart';
 import 'package:diyo/ui/detail/productlist.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
@@ -23,47 +24,25 @@ class Homepage extends StatelessWidget {
           ),
           Expanded(
             child: ListView.builder(
-                itemCount: 1,
+                itemCount: Products.products.length,
                 scrollDirection: Axis.vertical,
                 itemBuilder: (BuildContext context, int index) {
-                  return Column(
+                  return Row(
                     children: [
-                      ProductList(
-                          id: 1,
-                          namarestoran: 'Soup Kitchen',
-                          alamatRestoran: 'Jl Jember no 14 ',
-                          kategori: 'Chinese Food',
-                          prep: '5 menit',
-                          image:
-                              'https://media.discordapp.net/attachments/418302783331106818/1066981198280273960/google_logo.png?width=671&height=671',
-                          jarak: '20 km'),
-                      ProductList(
-                          id: 2,
-                          namarestoran: 'District 21',
-                          alamatRestoran: 'Jl Jember no 14 ',
-                          kategori: 'Chinese Food',
-                          prep: '5 menit',
-                          image:
-                              'https://media.discordapp.net/attachments/418302783331106818/1066981198280273960/google_logo.png?width=671&height=671',
-                          jarak: '20 km'),
-                      ProductList(
-                          id: 3,
-                          namarestoran: 'Foodstall',
-                          alamatRestoran: 'Jl Jember no 14 ',
-                          kategori: 'Chinese Food',
-                          prep: '5 menit',
-                          image:
-                              'https://media.discordapp.net/attachments/418302783331106818/1066981198280273960/google_logo.png?width=671&height=671',
-                          jarak: '20 km'),
-                      ProductList(
-                          id: 4,
-                          namarestoran: 'Foodstall',
-                          alamatRestoran: 'Jl Jember no 14 ',
-                          kategori: 'Chinese Food',
-                          prep: '5 menit',
-                          image:
-                              'https://media.discordapp.net/attachments/418302783331106818/1066981198280273960/google_logo.png?width=671&height=671',
-                          jarak: '20 km'),
+                      Image.network(
+                        Products.products[index].resimage ?? '',
+                        width: 100,
+                        height: 100,
+                      ),
+                      Column(
+                        children: [
+                          Text(
+                            Products.products[index].restaurantname ?? '',
+                          ),
+                          Text(Products.products[index].address ?? ''),
+                          Text(Products.products[index].foodKind ?? '')
+                        ],
+                      )
                     ],
                   );
                 }),

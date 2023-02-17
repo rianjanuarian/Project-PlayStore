@@ -27,42 +27,90 @@ class ProductList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.all(10.0),
+      padding: const EdgeInsets.all(15.0),
       child: InkWell(
         onTap: () {
           Get.to(() => RestaurantDetail());
         },
-        child: Row(
+        child: Stack(
           children: [
-            Image.network(
-              image,
-              width: 50,
-              height: 50,
-            ),
-            Column(
-              crossAxisAlignment: CrossAxisAlignment.end,
-              children: [
-                Container(
-                  child: Text(prep),
+            Padding(
+              padding: const EdgeInsets.only(top: 32.0),
+              child: Align(
+                alignment: Alignment(0.5, 0.9),
+                child: Text(
+                  jarak,
+                  style: TextStyle(color: Colors.red),
                 ),
-                Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(namarestoran),
-                    Row(
+              ),
+            ),
+            Align(
+                alignment: Alignment.centerRight,
+                child: Container(
+                    padding:
+                        EdgeInsets.only(left: 8, bottom: 4, top: 4, right: 8),
+                    width: 80,
+                    decoration: BoxDecoration(
+                        color: Colors.grey[300],
+                        borderRadius: BorderRadius.only(
+                            topRight: Radius.circular(5),
+                            bottomLeft: Radius.circular(5))),
+                    child: Row(
                       children: [
-                        Text(alamatRestoran),
-                        SizedBox(
-                          width: 10,
+                        Icon(
+                          Icons.access_time_rounded,
+                          size: 12,
                         ),
-                        Text(jarak)
+                        SizedBox(
+                          width: 5,
+                        ),
+                        Text(
+                          "20 menit",
+                          style: TextStyle(fontSize: 12),
+                        ),
+                      ],
+                    ))),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Row(
+                  children: [
+                    Image.network(
+                      image,
+                      width: 70,
+                      height: 70,
+                    ),
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          namarestoran,
+                          style: TextStyle(
+                              fontWeight: FontWeight.w700, fontSize: 15),
+                        ),
+                        SizedBox(
+                          height: 10,
+                        ),
+                        Row(
+                          children: [
+                            Text((alamatRestoran.length > 4)
+                                ? alamatRestoran.substring(0, 16)
+                                : alamatRestoran),
+                            // SizedBox(
+                            //   width: 10,
+                            // ),
+                          ],
+                        ),
+                        SizedBox(
+                          height: 3,
+                        ),
+                        Text(kategori),
                       ],
                     ),
-                    Text(kategori),
                   ],
                 ),
               ],
-            )
+            ),
           ],
         ),
       ),
