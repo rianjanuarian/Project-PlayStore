@@ -3,8 +3,6 @@ import 'package:diyo/ui/page/favorit.dart';
 import 'package:diyo/ui/page/homepage.dart';
 import 'package:diyo/ui/page/pesanan.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/framework.dart';
-import 'package:flutter/src/widgets/placeholder.dart';
 import 'package:qrscan/qrscan.dart ' as scanner;
 
 class MainPage extends StatefulWidget {
@@ -16,9 +14,9 @@ class MainPage extends StatefulWidget {
 
 class _MainPageState extends State<MainPage> {
   int currentTab = 0;
-  final List<Widget> screens = [Akun(), Favorit(), Pesanan()];
+  final List<Widget> screens = [const Akun(), const Favorit(), const Pesanan()];
   final PageStorageBucket bucket = PageStorageBucket();
-  Widget currentScreen = Homepage();
+  Widget currentScreen = const Homepage();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -32,14 +30,14 @@ class _MainPageState extends State<MainPage> {
           String? scans;
           scans = await scanner.scan();
         },
-        child: Icon(Icons.qr_code_scanner),
+        child: const Icon(Icons.qr_code_scanner),
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       bottomNavigationBar: BottomAppBar(
-        shape: CircularNotchedRectangle(),
+        shape: const CircularNotchedRectangle(),
         notchMargin: 10,
         child: Container(
-          padding: EdgeInsets.only(left: 10, right: 10),
+          padding: const EdgeInsets.only(left: 10, right: 10),
           height: 60,
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -52,7 +50,7 @@ class _MainPageState extends State<MainPage> {
                     minWidth: 40,
                     onPressed: () {
                       setState(() {
-                        currentScreen = Homepage();
+                        currentScreen = const Homepage();
                         currentTab = 0;
                       });
                     },
@@ -79,7 +77,7 @@ class _MainPageState extends State<MainPage> {
                   MaterialButton(
                     onPressed: () {
                       setState(() {
-                        currentScreen = Pesanan();
+                        currentScreen = const Pesanan();
                         currentTab = 1;
                       });
                     },
@@ -112,7 +110,7 @@ class _MainPageState extends State<MainPage> {
                   MaterialButton(
                     onPressed: () {
                       setState(() {
-                        currentScreen = Favorit();
+                        currentScreen = const Favorit();
                         currentTab = 3;
                       });
                     },
@@ -140,7 +138,7 @@ class _MainPageState extends State<MainPage> {
                     minWidth: 40,
                     onPressed: () {
                       setState(() {
-                        currentScreen = Akun();
+                        currentScreen = const Akun();
                         currentTab = 4;
                       });
                     },

@@ -1,5 +1,7 @@
+// ignore_for_file: unused_import
+
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/framework.dart';
+// ignore: implementation_imports
 import 'package:flutter/src/widgets/placeholder.dart';
 
 class Akun extends StatelessWidget {
@@ -9,7 +11,7 @@ class Akun extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Akun"),
+        title: const Text("Akun"),
       ),
     );
   }

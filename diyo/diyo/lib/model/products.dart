@@ -29,6 +29,14 @@ class Products {
       this.preptime});
 }
 
+class CartItem {
+  final Products products;
+  int? quantity;
+
+  CartItem({required this.products, this.quantity});
+  // double get subtotal => quantity * products.price;
+}
+
 List<Products> products = [
   Products(
     id: 1,
