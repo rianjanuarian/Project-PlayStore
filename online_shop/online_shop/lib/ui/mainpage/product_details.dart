@@ -9,8 +9,20 @@ import 'package:online_shop/ui/mainpage/product_card.dart';
 import 'package:online_shop/ui/mainpage/slider.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
+// ignore: must_be_immutable
 class ProductDetail extends StatefulWidget {
-  const ProductDetail({super.key});
+  int id;
+  String image;
+  String names;
+  String description;
+  num price;
+  ProductDetail(
+      {super.key,
+      required this.id,
+      required this.image,
+      required this.names,
+      required this.price,
+      required this.description});
 
   @override
   State<ProductDetail> createState() => _ProductDetailState();
@@ -56,71 +68,74 @@ class _ProductDetailState extends State<ProductDetail> {
           child: Column(
         children: [
           Stack(children: [
-            Container(
-              height: 240,
-              width: 420,
-              color: Colors.grey[200],
-            ),
-            Stack(
-              children: [
-                CarouselSlider.builder(
-                    itemCount: urlImage.length,
-                    itemBuilder: (BuildContext context, int itemIndex,
-                            int pageViewIndex) =>
-                        Container(
-                          child: Image.network(urlImage[itemIndex]),
-                        ),
-                    options: CarouselOptions(
-                        enableInfiniteScroll: false,
-                        aspectRatio: 16 / 9,
-                        onPageChanged: (itemIndex, reason) =>
-                            setState(() => sliderindex = itemIndex))),
-                Padding(
-                  padding: const EdgeInsets.only(
-                    left: 340,
-                    top: 220,
-                  ),
-                  child: SizedBox(
-                    child: AnimatedSmoothIndicator(
-                      activeIndex: sliderindex,
-                      count: urlImage.length,
-                      effect: CustomizableEffect(
-                        dotDecoration: DotDecoration(
-                          width: 6,
-                          height: 15,
-                          color: Colors.grey,
-                          // dotBorder: DotBorder(
-                          //   padding: 2,
-                          //   width: 2,
-                          //   color: Colors.grey,
-                          // ),
-                          // borderRadius: BorderRadius.only(
-                          //     topLeft: Radius.circular(2),
-                          //     topRight: Radius.circular(16),
-                          //     bottomLeft: Radius.circular(16),
-                          //     bottomRight: Radius.circular(2)),
-                          borderRadius: BorderRadius.circular(16),
-                          verticalOffset: 0,
-                        ),
-                        activeDotDecoration: DotDecoration(
-                          width: 6,
-                          height: 15,
-                          color: Colors.blue,
-                          rotationAngle: 180,
-                          verticalOffset: 0,
-                          borderRadius: BorderRadius.circular(24),
-                          // dotBorder: DotBorder(
-                          //   padding: 2,
-                          //   width: 2,
-                          //   color: Colors.indigo,
-                          // ),
-                        ),
-                      ),
-                    ),
-                  ),
-                ),
-              ],
+            // Container(
+            //   height: 240,
+            //   width: 420,
+            //   color: Colors.grey[200],
+            // ),
+            Image.network(
+              widget.image,
+              height: MediaQuery.of(context).size.height * 0.4,
+              width: MediaQuery.of(context).size.width * 1,
             )
+            // Stack(
+            //   children: [
+            //     CarouselSlider.builder(
+            //         itemCount: widget.image.length,
+            //         itemBuilder: (BuildContext context, int itemIndex,
+            //                 int pageViewIndex) =>
+            //             Image.network(widget.image[itemIndex]),
+            //         options: CarouselOptions(
+            //             enableInfiniteScroll: false,
+            //             aspectRatio: 16 / 9,
+            //             onPageChanged: (itemIndex, reason) =>
+            //                 setState(() => sliderindex = itemIndex))),
+            //     Padding(
+            //       padding: const EdgeInsets.only(
+            //         left: 340,
+            //         top: 220,
+            //       ),
+            //       child: SizedBox(
+            //         child: AnimatedSmoothIndicator(
+            //           activeIndex: sliderindex,
+            //           count: widget.image.length,
+            //           effect: CustomizableEffect(
+            //             dotDecoration: DotDecoration(
+            //               width: 6,
+            //               height: 15,
+            //               color: Colors.grey,
+            //               // dotBorder: DotBorder(
+            //               //   padding: 2,
+            //               //   width: 2,
+            //               //   color: Colors.grey,
+            //               // ),
+            //               // borderRadius: BorderRadius.only(
+            //               //     topLeft: Radius.circular(2),
+            //               //     topRight: Radius.circular(16),
+            //               //     bottomLeft: Radius.circular(16),
+            //               //     bottomRight: Radius.circular(2)),
+            //               borderRadius: BorderRadius.circular(16),
+            //               verticalOffset: 0,
+            //             ),
+            //             activeDotDecoration: DotDecoration(
+            //               width: 6,
+            //               height: 15,
+            //               color: Colors.blue,
+            //               rotationAngle: 180,
+            //               verticalOffset: 0,
+            //               borderRadius: BorderRadius.circular(24),
+            //               // dotBorder: DotBorder(
+            //               //   padding: 2,
+            //               //   width: 2,
+            //               //   color: Colors.indigo,
+            //               // ),
+            //             ),
+            //           ),
+            //         ),
+            //       ),
+            //     ),
+            //   ],
+            // )
           ]),
           SizedBox(
             height: MediaQuery.of(context).size.height * 0.02,
@@ -128,12 +143,14 @@ class _ProductDetailState extends State<ProductDetail> {
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
-              Text(
-                "AirPods Max",
-                style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+              Expanded(
+                child: Text(
+                  widget.names,
+                  style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+                ),
               ),
               SizedBox(
-                width: MediaQuery.of(context).size.width * 0.50,
+                width: MediaQuery.of(context).size.width * 0.002,
               ),
               Icon(
                 Icons.favorite,
@@ -168,7 +185,7 @@ class _ProductDetailState extends State<ProductDetail> {
           Padding(
             padding: const EdgeInsets.all(8.0),
             child: Text(
-              "AirPods Max merancang ulang headphone over-ear. Driver yang didesain dinamis oleh Apple menghadirkan audio high-fidelity yang menghanyutkan. Setiap detailnya, mulai dari kanopi hingga bantalan, dirancang agar tepat untuk semua. Peredam Kebisingan Aktif terdepan di industri meredam kebisingan dari luar, sedangkan mode Transparansi memungkinkan suara eksternal masuk. Dan audio spasial dengan pelacakan gerakan kepala dinamis menghadirkan suara yang mengelilingi Anda seperti di bioskop.1",
+              widget.description,
               maxLines: 4,
               style: TextStyle(fontSize: 13),
             ),
@@ -180,7 +197,7 @@ class _ProductDetailState extends State<ProductDetail> {
               children: [
                 Expanded(
                   child: Text(
-                    "Rp.10.000.000",
+                    "USD ${widget.price}",
                     style: TextStyle(fontSize: 17, fontWeight: FontWeight.w600),
                   ),
                 ),

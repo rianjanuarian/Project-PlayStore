@@ -248,11 +248,13 @@ class LoginPage extends StatelessWidget {
                     onTap: () {
                       Get.to(() => const RegisterPage());
                     },
-                  )
+                  ),
+                  
                 ],
               ),
             ),
           ),
+  
         ],
       ),
     );

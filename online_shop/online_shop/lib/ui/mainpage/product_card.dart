@@ -6,12 +6,14 @@ import 'package:online_shop/model/product.dart';
 
 // ignore: must_be_immutable
 class ProductCard extends StatelessWidget {
+  int id;
   String namep;
   String descriptionp;
   String imagep;
   num pricep;
   ProductCard(
       {super.key,
+      required this.id,
       required this.descriptionp,
       required this.pricep,
       required this.imagep,
@@ -28,7 +30,12 @@ class ProductCard extends StatelessWidget {
                   borderRadius: BorderRadius.circular(5)),
               child: InkWell(
                 onTap: () {
-                  Get.to(() => const ProductDetail());
+                  Get.to(() => ProductDetail(
+                      id: id,
+                      image: imagep,
+                      names: namep,
+                      price: pricep,
+                      description: descriptionp));
                 },
                 child: Column(
                   children: [

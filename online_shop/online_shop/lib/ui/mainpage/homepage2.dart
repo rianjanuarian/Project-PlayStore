@@ -93,32 +93,46 @@ class _HomePage2State extends State<HomePage2> {
             ),
             child: SizedBox(
               height: 30,
-              child: ListView.builder(
-                  scrollDirection: Axis.horizontal,
-                  itemCount: 4,
-                  itemBuilder: (BuildContext context, int index) => Padding(
-                        padding: EdgeInsets.fromLTRB(20, 0, 5, 0),
-                        child: Container(
-                          decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(10),
-                              border: Border.all()),
-                          child: Row(
-                            children: [
-                              SizedBox(
-                                width: 5,
+              child: FutureBuilder(
+                  future: Services.categories(),
+                  builder: (context, snapshot) {
+                    if (snapshot.hasData) {
+                      return ListView.builder(
+                          scrollDirection: Axis.horizontal,
+                          itemCount: snapshot.data!.length,
+                          itemBuilder: (BuildContext context, int index) {
+                            final value = snapshot.data![index];
+
+                            return Padding(
+                              padding: EdgeInsets.fromLTRB(20, 0, 5, 0),
+                              child: Container(
+                                decoration: BoxDecoration(
+                                    borderRadius: BorderRadius.circular(10),
+                                    border: Border.all()),
+                                child: Row(
+                                  children: [
+                                    SizedBox(
+                                      width: 5,
+                                    ),
+                                    Container(
+                                      child: Text(value.category ?? ''),
+                                    ),
+                                    Padding(
+                                      padding: const EdgeInsets.only(
+                                          left: 3.0, right: 3),
+                                      child: Text(''),
+                                    )
+                                  ],
+                                ),
                               ),
-                              Container(
-                                child: iconCategory[index],
-                              ),
-                              Padding(
-                                padding:
-                                    const EdgeInsets.only(left: 3.0, right: 3),
-                                child: Text(''),
-                              )
-                            ],
-                          ),
-                        ),
-                      )),
+                            );
+                          });
+                    } else {
+                      return Center(
+                        child: CircularProgressIndicator(),
+                      );
+                    }
+                  }),
             ),
           ),
           Padding(
@@ -134,7 +148,7 @@ class _HomePage2State extends State<HomePage2> {
                   ),
                   onTap: () {
                     print("W");
-                    Get.to(() => ProductList());
+                    Get.to(() => const ProductList());
                   },
                 )
               ],
@@ -155,6 +169,7 @@ class _HomePage2State extends State<HomePage2> {
                           return Padding(
                               padding: const EdgeInsets.fromLTRB(10, 0, 5, 0),
                               child: ProductCard(
+                                  id: value.id ?? 0,
                                   descriptionp: value.description ?? "  ",
                                   pricep: value.price ?? 0,
                                   imagep: value.image ?? "",
@@ -205,6 +220,7 @@ class _HomePage2State extends State<HomePage2> {
                           return Padding(
                               padding: const EdgeInsets.fromLTRB(10, 0, 5, 0),
                               child: ProductCard(
+                                  id: value.id ?? 0,
                                   descriptionp: value.description ?? "  ",
                                   pricep: value.price ?? 0,
                                   imagep: value.image ?? "",
