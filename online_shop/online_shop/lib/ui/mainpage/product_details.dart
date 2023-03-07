@@ -6,7 +6,7 @@ import 'package:flutter/src/widgets/framework.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:online_shop/model/product.dart';
 import 'package:online_shop/ui/mainpage/product_card.dart';
-import 'package:online_shop/ui/mainpage/slider.dart';
+
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
 // ignore: must_be_immutable
@@ -37,7 +37,7 @@ class _ProductDetailState extends State<ProductDetail> {
     'https://cdn.discordapp.com/attachments/986713553203515402/1066753227296608306/326240751_1042899663295752_826465983452364938_n.png'
   ];
   final CarouselController _controller = CarouselController();
-  Products? products;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
