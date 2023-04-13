@@ -1,7 +1,11 @@
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:intl/intl.dart';
 import 'package:online_shop/model/apiservices.dart';
 import 'package:online_shop/model/listproduk.dart';
+import 'package:online_shop/ui/mainpage/product_details.dart';
 
 class ProductList extends StatelessWidget {
   const ProductList({super.key});
@@ -33,7 +37,14 @@ class ProductList extends StatelessWidget {
                         shape: BeveledRectangleBorder(
                             borderRadius: BorderRadius.circular(5)),
                         child: InkWell(
-                          onTap: () {},
+                          onTap: () {
+                            Get.to(ProductDetail(
+                                id: value.id ?? 0,
+                                image: value.image!,
+                                names: value.title!,
+                                price: value.price!,
+                                description: value.description!));
+                          },
                           child: Column(
                             children: [
                               Stack(

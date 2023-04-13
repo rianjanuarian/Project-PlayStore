@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
@@ -15,10 +16,10 @@ class HomePage2 extends StatefulWidget {
 
 class _HomePage2State extends State<HomePage2> {
   final iconCategory = [
-    Icon(Icons.computer),
-    Icon(Icons.headset),
-    Icon(Icons.phone_android_rounded),
-    Icon(Icons.category_outlined)
+    const Icon(Icons.computer),
+    const Icon(Icons.headset),
+    const Icon(Icons.phone_android_rounded),
+    const Icon(Icons.category_outlined)
   ];
   int _selectedNavbar = 0;
   void _changeSelectedNavBar(int index) {
@@ -40,14 +41,23 @@ class _HomePage2State extends State<HomePage2> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text(
-                    "Hello Ryan,",
-                    style: TextStyle(fontWeight: FontWeight.w700),
-                  ),
+                  StreamBuilder<User?>(
+                      stream: FirebaseAuth.instance.userChanges(),
+                      builder: (context, snapshot) {
+                        if (snapshot.hasData) {
+                          return Text(
+                              "Hello ${FirebaseAuth.instance.currentUser!.displayName} (${FirebaseAuth.instance.currentUser!.email})");
+                        } else {
+                          return const Text(
+                            "Hello Ryan,",
+                            style: TextStyle(fontWeight: FontWeight.w700),
+                          );
+                        }
+                      }),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      Text("What are you buying today?"),
+                      const Text("What are you buying today?"),
                       Align(
                         alignment: Alignment.topRight,
                         child: Container(
@@ -56,7 +66,7 @@ class _HomePage2State extends State<HomePage2> {
                           decoration: BoxDecoration(
                               borderRadius: BorderRadius.circular(20),
                               border: Border.all(width: 2, color: Colors.grey)),
-                          child: Icon(Icons.card_travel),
+                          child: const Icon(Icons.card_travel),
                         ),
                       ),
                     ],
@@ -70,9 +80,10 @@ class _HomePage2State extends State<HomePage2> {
             child: ElevatedButton(
                 onPressed: () {},
                 style: ElevatedButton.styleFrom(
-                    backgroundColor: Colors.grey[200], shape: StadiumBorder()),
+                    backgroundColor: Colors.grey[200],
+                    shape: const StadiumBorder()),
                 child: Row(
-                  children: [
+                  children: const [
                     Icon(
                       Icons.search,
                       color: Colors.grey,
@@ -104,22 +115,20 @@ class _HomePage2State extends State<HomePage2> {
                             final value = snapshot.data![index];
 
                             return Padding(
-                              padding: EdgeInsets.fromLTRB(20, 0, 5, 0),
+                              padding: const EdgeInsets.fromLTRB(20, 0, 5, 0),
                               child: Container(
                                 decoration: BoxDecoration(
                                     borderRadius: BorderRadius.circular(10),
                                     border: Border.all()),
                                 child: Row(
                                   children: [
-                                    SizedBox(
+                                    const SizedBox(
                                       width: 5,
                                     ),
-                                    Container(
-                                      child: Text(value.category ?? ''),
-                                    ),
-                                    Padding(
-                                      padding: const EdgeInsets.only(
-                                          left: 3.0, right: 3),
+                                    Text(value.category ?? ''),
+                                    const Padding(
+                                      padding:
+                                          EdgeInsets.only(left: 3.0, right: 3),
                                       child: Text(''),
                                     )
                                   ],
@@ -128,7 +137,7 @@ class _HomePage2State extends State<HomePage2> {
                             );
                           });
                     } else {
-                      return Center(
+                      return const Center(
                         child: CircularProgressIndicator(),
                       );
                     }
@@ -140,14 +149,13 @@ class _HomePage2State extends State<HomePage2> {
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                Text("Latest Products"),
+                const Text("Latest Products"),
                 InkWell(
                   child: Text(
                     " See all",
                     style: TextStyle(color: Colors.blue[800]),
                   ),
                   onTap: () {
-                    print("W");
                     Get.to(() => const ProductList());
                   },
                 )
@@ -183,7 +191,7 @@ class _HomePage2State extends State<HomePage2> {
                               );
                         });
                   } else {
-                    return Center(
+                    return const Center(
                       child: CircularProgressIndicator(),
                     );
                   }
@@ -194,7 +202,7 @@ class _HomePage2State extends State<HomePage2> {
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                Text("Recently viewed"),
+                const Text("Recently viewed"),
                 InkWell(
                   child: Text(
                     " See all",
@@ -234,7 +242,7 @@ class _HomePage2State extends State<HomePage2> {
                               );
                         });
                   } else {
-                    return Center(
+                    return const Center(
                       child: CircularProgressIndicator(),
                     );
                   }
@@ -242,31 +250,6 @@ class _HomePage2State extends State<HomePage2> {
           ),
         ],
       )),
-      bottomNavigationBar: BottomNavigationBar(
-        items: const <BottomNavigationBarItem>[
-          BottomNavigationBarItem(
-              icon: Icon(Icons.home),
-              label: 'Home',
-              backgroundColor: Colors.white),
-          // BottomNavigationBarItem(
-          //     icon: Icon(Icons.favorite),
-          //     label: 'Favourite',
-          //     backgroundColor: Colors.white),
-          BottomNavigationBarItem(
-              icon: Icon(Icons.notifications),
-              label: 'Notification',
-              backgroundColor: Colors.white),
-          BottomNavigationBarItem(
-              icon: Icon(Icons.account_box),
-              label: 'Profile',
-              backgroundColor: Colors.white),
-        ],
-        currentIndex: _selectedNavbar,
-        selectedItemColor: Colors.blue,
-        unselectedItemColor: Colors.grey,
-        showUnselectedLabels: true,
-        onTap: _changeSelectedNavBar,
-      ),
     );
   }
 }

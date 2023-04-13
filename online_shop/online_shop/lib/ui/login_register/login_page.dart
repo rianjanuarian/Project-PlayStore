@@ -1,6 +1,9 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:google_sign_in/google_sign_in.dart';
+import 'package:online_shop/bottombar.dart';
 
 import 'package:online_shop/ui/login_register/register_page.dart';
 import 'package:online_shop/ui/mainpage/homepage2.dart';
@@ -159,7 +162,7 @@ class LoginPage extends StatelessWidget {
                           shape: const StadiumBorder(),
                           backgroundColor: Colors.amber[300]),
                       onPressed: () {
-                        Get.off(() => const HomePage2());
+                        Get.off(() => const BottomBar());
                       },
                       child: Text(
                         "Continue",
@@ -208,7 +211,23 @@ class LoginPage extends StatelessWidget {
               child: MaterialButton(
                 color: Colors.white70,
                 shape: const StadiumBorder(),
-                onPressed: () {},
+                onPressed: () async {
+                  if (FirebaseAuth.instance.currentUser == null) {
+                    GoogleSignInAccount? account =
+                        await GoogleSignIn().signIn();
+                    if (account != null) {
+                      GoogleSignInAuthentication auth =
+                          await account.authentication;
+                      OAuthCredential credential =
+                          GoogleAuthProvider.credential(
+                              accessToken: auth.accessToken,
+                              idToken: auth.idToken);
+                      await FirebaseAuth.instance
+                          .signInWithCredential(credential);
+                      Get.to(const BottomBar());
+                    }
+                  }
+                },
                 elevation: 10,
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.center,
@@ -249,12 +268,10 @@ class LoginPage extends StatelessWidget {
                       Get.to(() => const RegisterPage());
                     },
                   ),
-                  
                 ],
               ),
             ),
           ),
-  
         ],
       ),
     );

@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "103093978444",
+    "project_id": "marketplace-aed57",
+    "storage_bucket": "marketplace-aed57.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:103093978444:android:9c4f87b9a89a4e286a3be9",
+        "android_client_info": {
+          "package_name": "com.online_shop"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "103093978444-qqj1p5i57uu47at04vk55pik0uulk2n4.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAPQfrkfu8bXPE1s_96XkoLZnHcRUMg120"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "103093978444-qqj1p5i57uu47at04vk55pik0uulk2n4.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

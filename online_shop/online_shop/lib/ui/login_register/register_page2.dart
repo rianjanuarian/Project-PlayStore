@@ -1,16 +1,15 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
+import 'package:flutter/src/widgets/framework.dart';
+import 'package:flutter/src/widgets/placeholder.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:online_shop/ui/login_register/login_page.dart';
-import 'package:online_shop/ui/login_register/register_page2.dart';
 
-class RegisterPage extends StatelessWidget {
-  const RegisterPage({super.key});
+class RegisterPage2 extends StatelessWidget {
+  const RegisterPage2({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      // resizeToAvoidBottomInset: false,
+      resizeToAvoidBottomInset: false,
       body: Stack(
         children: [
           Center(
@@ -25,7 +24,7 @@ class RegisterPage extends StatelessWidget {
                       Container(
                         padding: const EdgeInsets.only(right: 150),
                         child: Text(
-                          "CREATE ACCOUNT",
+                          "Create New Account",
                           style: GoogleFonts.rowdies(fontSize: 20),
                         ),
                       ),
@@ -217,9 +216,7 @@ class RegisterPage extends StatelessWidget {
                           style: ElevatedButton.styleFrom(
                               shape: const StadiumBorder(),
                               backgroundColor: Colors.amber),
-                          onPressed: () {
-                            Get.to(RegisterPage2());
-                          },
+                          onPressed: () {},
                           child: const Text("Sign Up"),
                         )),
                   ),
@@ -243,7 +240,7 @@ class RegisterPage extends StatelessWidget {
                               style: TextStyle(color: Colors.amber[800]),
                             ),
                             onTap: () {
-                              Get.to(() => const LoginPage());
+                              // Get.to(() => const LoginPage());
                             },
                           ),
                         ],
