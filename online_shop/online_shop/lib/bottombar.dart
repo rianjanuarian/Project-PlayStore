@@ -60,7 +60,7 @@ class _BottomBarState extends State<BottomBar> {
                       color: currentTab == 0 ? Colors.blue : Colors.grey,
                     ),
                     Text(
-                      'Beranda',
+                      'Home',
                       style: TextStyle(
                           fontSize: 10,
                           color: currentTab == 0 ? Colors.blue : Colors.grey),
@@ -83,7 +83,7 @@ class _BottomBarState extends State<BottomBar> {
                       color: currentTab == 1 ? Colors.blue : Colors.grey,
                     ),
                     Text(
-                      'Pesanan',
+                      'Order',
                       style: TextStyle(
                           fontSize: 10,
                           color: currentTab == 2 ? Colors.blue : Colors.grey),
@@ -107,7 +107,7 @@ class _BottomBarState extends State<BottomBar> {
                       color: currentTab == 3 ? Colors.blue : Colors.grey,
                     ),
                     Text(
-                      'Favorit',
+                      'Favourite',
                       style: TextStyle(
                           fontSize: 10,
                           color: currentTab == 2 ? Colors.blue : Colors.grey),
@@ -131,7 +131,7 @@ class _BottomBarState extends State<BottomBar> {
                       color: currentTab == 4 ? Colors.blue : Colors.grey,
                     ),
                     Text(
-                      'Akun',
+                      'Account',
                       style: TextStyle(
                           fontSize: 10,
                           color: currentTab == 4 ? Colors.blue : Colors.grey),

@@ -49,7 +49,7 @@ class _HomePage2State extends State<HomePage2> {
                               "Hello ${FirebaseAuth.instance.currentUser!.displayName} (${FirebaseAuth.instance.currentUser!.email})");
                         } else {
                           return const Text(
-                            "Hello Ryan,",
+                            "Hello...,",
                             style: TextStyle(fontWeight: FontWeight.w700),
                           );
                         }

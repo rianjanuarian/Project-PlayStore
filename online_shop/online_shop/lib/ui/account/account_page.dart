@@ -30,13 +30,15 @@ class AccountPage extends StatelessWidget {
                   ],
                 );
               }
-              return const Text("data");
+              return const Text("No User");
             }),
         ElevatedButton(
             onPressed: () {
               if (FirebaseAuth.instance.currentUser != null) {
                 GoogleSignIn().signOut();
                 FirebaseAuth.instance.signOut();
+                Get.off(const LoginPage());
+              } else {
                 Get.off(const LoginPage());
               }
             },
