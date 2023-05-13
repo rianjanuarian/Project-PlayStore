@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
 import 'package:online_shop/model/apiservices.dart';
+import 'package:online_shop/ui/mainpage/category_page.dart';
 
 import 'package:online_shop/ui/mainpage/product_card.dart';
 import 'package:online_shop/ui/mainpage/product_list/product_list.dart';
@@ -116,22 +117,29 @@ class _HomePage2State extends State<HomePage2> {
 
                             return Padding(
                               padding: const EdgeInsets.fromLTRB(20, 0, 5, 0),
-                              child: Container(
-                                decoration: BoxDecoration(
-                                    borderRadius: BorderRadius.circular(10),
-                                    border: Border.all()),
-                                child: Row(
-                                  children: [
-                                    const SizedBox(
-                                      width: 5,
-                                    ),
-                                    Text(value.category ?? ''),
-                                    const Padding(
-                                      padding:
-                                          EdgeInsets.only(left: 3.0, right: 3),
-                                      child: Text(''),
-                                    )
-                                  ],
+                              child: InkWell(
+                                onTap: () {
+                                  Get.to(CategoryPage(
+                                    category: value.category ?? '',
+                                  ));
+                                },
+                                child: Container(
+                                  decoration: BoxDecoration(
+                                      borderRadius: BorderRadius.circular(10),
+                                      border: Border.all()),
+                                  child: Row(
+                                    children: [
+                                      const SizedBox(
+                                        width: 5,
+                                      ),
+                                      Text(value.category ?? ''),
+                                      const Padding(
+                                        padding: EdgeInsets.only(
+                                            left: 3.0, right: 3),
+                                        child: Text(''),
+                                      )
+                                    ],
+                                  ),
                                 ),
                               ),
                             );

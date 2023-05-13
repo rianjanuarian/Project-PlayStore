@@ -48,7 +48,7 @@ class _ProductDetailState extends State<ProductDetail> {
         title: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            Text(
+            const Text(
               "Product Details",
               textAlign: TextAlign.center,
               style: TextStyle(fontWeight: FontWeight.w700),
@@ -311,7 +311,7 @@ class _ProductDetailState extends State<ProductDetail> {
                     Padding(
                       padding: const EdgeInsets.only(left: 80.0),
                       child: Text(
-                        "Rp.1.000.000",
+                        'USD ${widget.price}',
                         style: TextStyle(fontSize: 12),
                       ),
                     )

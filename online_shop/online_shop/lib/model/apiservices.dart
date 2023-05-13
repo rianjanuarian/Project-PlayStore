@@ -19,6 +19,15 @@ abstract class Services {
                 description: e['description'],
                 image: e['image']))
             .toList();
+      } else if (response.statusCode == 104) {
+        return data
+            .map((e) => Produk(
+                title: e['title'],
+                price: e['price'],
+                category: e['category'],
+                description: e['description'],
+                image: e['image']))
+            .toList();
       }
       throw Exception('failed to load');
     } catch (e) {
@@ -52,6 +61,27 @@ abstract class Services {
 
       if (response.statusCode == 200) {
         return data.map((e) => Categories(category: e)).toList();
+      }
+      throw Exception('failed to load');
+    } catch (e) {
+      throw Exception(e.toString());
+    }
+  }
+
+  static Future<List<Produk>> listKategori(String listkategori) async {
+    try {
+      String url = 'https://fakestoreapi.com/products/category/$listkategori';
+      var response = await Dio().get(url);
+      final List data = response.data;
+      if (response.statusCode == 200) {
+        return data
+            .map((e) => Produk(
+                title: e['title'],
+                price: e['price'],
+                category: e['category'],
+                description: e['description'],
+                image: e['image']))
+            .toList();
       }
       throw Exception('failed to load');
     } catch (e) {
