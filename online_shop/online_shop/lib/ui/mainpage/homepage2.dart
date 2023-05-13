@@ -119,9 +119,9 @@ class _HomePage2State extends State<HomePage2> {
                               padding: const EdgeInsets.fromLTRB(20, 0, 5, 0),
                               child: InkWell(
                                 onTap: () {
-                                  Get.to(CategoryPage(
-                                    category: value.category ?? '',
-                                  ));
+                                  Get.to(() => CategoryPage(
+                                        category: value.category ?? '',
+                                      ));
                                 },
                                 child: Container(
                                   decoration: BoxDecoration(
