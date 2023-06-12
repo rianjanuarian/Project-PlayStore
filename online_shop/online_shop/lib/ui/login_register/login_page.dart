@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:google_sign_in/google_sign_in.dart';
+
 import 'package:online_shop/bottombar.dart';
 
 import 'package:online_shop/ui/login_register/register_page.dart';

@@ -14,7 +14,23 @@
       },
       "oauth_client": [
         {
-          "client_id": "103093978444-qqj1p5i57uu47at04vk55pik0uulk2n4.apps.googleusercontent.com",
+          "client_id": "103093978444-logd5gbec8u1fe5gcu8lccamaftvfhdl.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.online_shop",
+            "certificate_hash": "6c4cadfbb281bf96e7c7da8b310bb785576eda19"
+          }
+        },
+        {
+          "client_id": "103093978444-ofessjppcipfql5ntb2vkdohanh0pjh7.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.online_shop",
+            "certificate_hash": "68be8e237bc84776ff83853694fe35bce33c38ed"
+          }
+        },
+        {
+          "client_id": "103093978444-9rcm2v7cgq5ooe9a3mkfve638fhqdhc4.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
@@ -27,7 +43,7 @@
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "103093978444-qqj1p5i57uu47at04vk55pik0uulk2n4.apps.googleusercontent.com",
+              "client_id": "103093978444-9rcm2v7cgq5ooe9a3mkfve638fhqdhc4.apps.googleusercontent.com",
               "client_type": 3
             }
           ]

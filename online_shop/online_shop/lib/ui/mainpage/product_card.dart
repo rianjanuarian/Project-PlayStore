@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:intl/intl.dart';
 import 'package:online_shop/ui/mainpage/product_details.dart';
-import 'package:online_shop/model/product.dart';
 
 // ignore: must_be_immutable
 class ProductCard extends StatelessWidget {
